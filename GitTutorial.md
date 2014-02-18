@@ -37,6 +37,8 @@ cd .\checkers\
 #### Adding new files
  * You can just drop files into `My Documents\GitHub\2me3\checkers`
  * Then allow git to see those files with the command `git add *` where you can replace `*` with a filename or leave it as `*` to add all files 
+   * You don't want to add compiled binaries ".exe files" or random latex junk files.
+   * Another option to ignore files is using a [.gitignore](https://help.github.com/articles/ignoring-files) file
 
 #### Changing existing files
  * Before making changes, make sure you have the latest copy by doing a `git pull`
