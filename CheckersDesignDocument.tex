@@ -1,9 +1,12 @@
 \documentclass[10pt]{article}
 \usepackage[top=1in, bottom=1.2in]{geometry}
+\linespread{1} % line spacing
 \geometry{letterpaper}
 \usepackage{tabularx}
 \usepackage[parfill]{parskip} % begin paragraphs with an empty line rather than an indent
 \usepackage[ocgcolorlinks]{hyperref} %ocg coverts links to black when you print -- downside of unbreakable lines
+
+
 
 % New command \CustomLabel{labelname} creates a hypertarget and label for referencing
 \makeatletter
@@ -57,10 +60,10 @@
 Modules are stuff.
 
 \subsection{Hardware Hiding Module}
-        \begin{tikzpicture}[scale=1.5, align=center]
+    \begin{tikzpicture}[scale=1.5, align=center]
         \node[root] {Hardware Hiding Module}
-        child {node[level 2, hyperlink node=hhm:WirelessComs]{Wireless Communications}}
-        child {node[level 2, hyperlink node=hhm:Clock]{Clock}}
+        child {node[level 2, hyperlink node=mod:WirelessComs]{Wireless Communications}}
+        child {node[level 2, hyperlink node=mod:Clock]{Clock}}
         child {node[level 2]{Positioning the nodes}}
         child {node[level 2]{Positioning the nodes}
             child[subA] {node[level 3]{Joe}}
@@ -79,12 +82,11 @@ Modules are stuff.
             child[subB] {node[level 3]{Heather}}
             child[subC] {node[level 3]{Barbara}}}
         ;
-        
     \end{tikzpicture}
     
             
 
-    \subsubsection{Wireless Communications Hardware Hiding Module}\CustomLabel{hhm:WirelessComs}
+    \subsubsection{Wireless Communications Hardware Hiding Module}\CustomLabel{mod:WirelessComs}
         \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
             Type            & Host/Onboard Module \\
             Secret          & This module serves to hide the secret of what wireless communications hardware is being used \\
@@ -94,12 +96,12 @@ Modules are stuff.
         \end{tabularx}
 
 
-    \subsubsection{Clock Hardware Hiding Module}\CustomLabel{hhm:Clock}
+    \subsubsection{Clock Hardware Hiding Module}\CustomLabel{mod:Clock}
         \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
             Type            & Onboard Module \\
             Secret          & This module serves to hide the secret of what clock hardware is being used. \\
             Responsibilites & This module is responsible for direct monitoring and controlling of the clock hardware. \\
-            Uses            & \ref{hhm:WirelessComs} \\
+            Uses            & \ref{mod:WirelessComs} \\
             Design          & None \\
         \end{tabularx}
         
@@ -108,15 +110,90 @@ Modules are stuff.
 
 \subsection{Software Hiding Module}
 
-    \subsubsection{ TEMPLATE XXX Hiding Module}\label{hhm:TEMPLATE}
+    \subsubsection{ TEMPLATE XXX Hiding Module}\label{mod:TEMPLATE}
         \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
             Type            &  \\
-            Secret          &  \\
-            Responsibilites &  \\
+            Secret          & Explain why this is an XXX hiding module. \\
             Uses            & \ref{labelhere} \\ % can call row 'Requirements' or 'Uses'
-            Design          &  reference to implementation \\ % This row can be called 'Design' or 'Implementation'
+            Code            &  reference to implementation \\ % This row can be called 'Design' or 'Implementation'
         \end{tabularx}
         
 \newpage
-zz
+
+
+
+
+\section{Module Design}
+
+    \subsection{Wireless Communications Hardware Hiding Module}\CustomLabel{md:WirelessComs}
+    \subsubsection{Interface}
+        \begin{tabularx}{\linewidth}{ >{\bfseries}r Xp{5cm} }
+            Types           & WHAT IS TYPES? It's in page 13 of SE2AA4 design.pdf. \\
+            
+            Constants       & \begin{tabular}[t]{l l} 
+                                     & \\
+                                    List off & does magic \\
+                                    CONSTANTS & def of what constant does \\
+                                    programszzzzzzzzzzzzzzzzzzzzzzzzzzzzz & zzzzzzzzzzzzzzzzzzzzz \\
+                                    here & \\ 
+                              \end{tabular} \\
+
+            Access Programs & \begin{tabular}[t]{l l} 
+                                     & \\
+                                    getNumBananas() & Gets int bananas \\
+                                    access & def \\
+                                    programszzzzzzzzzzzzzzzzzzzzzzzzzzzzz & zzzzzzzzzzzzzzzzzzzzz \\
+                                    here & \\ 
+                              \end{tabular} \\
+                              
+        \end{tabularx}
+        
+    \subsubsection{Implementation}
+        \begin{tabularx}{\linewidth}{ >{\bfseries}r Xp{5cm} }
+            Types           & WHAT IS TYPES? It's in page 13 of SE2AA4 design.pdf. \\
+            
+            Constants       & \begin{tabular}[t]{l l} 
+                                 & \\
+                                List off & does magic \\
+                                CONSTANTS & def of what constant does \\
+                                programszzzzzzzzzzzzzzzzzzzzzzzzzzzzz & zzzzzzzzzzzzzzzzzzzzz \\
+                                here & \\ 
+                            \end{tabular} \\
+                              
+            Variables       & \begin{tabular}[t]{l l} 
+                                     & \\
+                                    List off & does magic \\
+                                    CONSTANTS & def of what constant does \\
+                                    programszzzzzzzzzzzzzzzzzzzzzzzzzzzzz & zzzzzzzzzzzzzzzzzzzzz \\
+                                    here & \\ 
+                              \end{tabular} \\
+
+            Access Programs & \begin{tabular}[t]{l l} 
+                                     & \\
+                                    \bf{getNumBananas()} & \\
+                                    Inputs & None \\
+                                    Outputs & NumOfBananas \\
+                                    Updates & bananaCount \\ 
+                                     & \\
+                                    \bf{xxxanas()} & \\
+                                    Inputs & None \\
+                                    Outputs & NumOfBananas \\
+                                    Updates & bananaCount \\ 
+                              \end{tabular} \\
+                              
+        \end{tabularx}
+        
+
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
