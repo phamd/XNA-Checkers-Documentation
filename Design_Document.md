@@ -68,7 +68,8 @@ Pieces
 ======
 
 Pieces() 
->this will hold the necessary components to describe what a game piece will contain
+>this will hold the necessary components to describe what a game piece will contain, which will be seperate from the game board.
+>This allows for changes in the game easily and seperate from the board module
 >Responsibilities: The piece module contains all the data contained within individual pieces, such as the type, and player it belongs to. 
 
 + **getType()** returns whether the piece is a king or a normal piece
