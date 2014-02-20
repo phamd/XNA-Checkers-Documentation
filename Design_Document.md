@@ -1,6 +1,6 @@
 Design Document
 ===============
-#####This document will be a description of our current checker's requirements and interface creations
+This document will be a description of our current checker's requirements and interface creations
 
 
 Requirements up to Assignment 1
