@@ -18,15 +18,15 @@ Requirements up to Assignment 1
     4. If they specified every pieces starting position, user must be able to indicate if the set up is complete 
     4. User should be able to clear the board
 5. Maximum of 12 white and 12 black pieces can be placed on the board
+
 6. Illegal moves notification:
     6.User should be notified if a piece choice is illegal
     6. a piece on a light square
     6. exceeding the maximum number
     6. spelling/ typing error
     6. there is already a piece there
-7.
-    
-    User should be notified if there in an inappropriate number of pieces on the board **
+
+7. User should be notified if there in an inappropriate number of pieces on the board
 	Inappropriate includes:
     7. blank board
 8. Must allow for further development of the game, very good abstraction of code
