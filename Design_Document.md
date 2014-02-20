@@ -29,12 +29,14 @@ Requirements up to Assignment 1
     7. blank board
 8. Must allow for further development of the game, very good abstraction of code
 
-###States
+States
+------
 - Menu
 - Set-up
 - Playing
 
-###Encapsulation Structure
+Encapsulation Structure
+-----------------------
 Program -> Game1 -> Board -> Piece 
 
 
