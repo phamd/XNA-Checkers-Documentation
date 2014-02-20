@@ -37,7 +37,7 @@ Current Design of Software According to Design Document
 
 
 **Pieces** 
-```Pieces() 
+Pieces() 
 >this will hold the necessary components to describe what a game piece will contain
 -getType() returns whether the piece is a king or a normal piece
 -getLocation() returns the location of a specified piece, returning X and Y value
@@ -48,7 +48,7 @@ Current Design of Software According to Design Document
 **Board** 
 
 
-```Board() 
+Board() 
 >this will hold the necessary components and attributes to describe and setup the board
 -UpdateBoard() update visuals of the board
 -RemovePiece(int x, int y) removes visual piece and reference in the matrix representation
