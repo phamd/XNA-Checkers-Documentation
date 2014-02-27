@@ -52,17 +52,21 @@ Board()
 >this will hold the necessary components and attributes to describe and setup the board
 >Secret: This module encapsulates the Piece module.
 >Responsibilities: The board module tracks where all the pieces are located. It contains methods to check where pieces are and to add pieces to the board. 
+>The Board Class will hold an array of Piece objects. It contains methods to check where pieces are and to add pieces to the board. 
 
+Board Erica Revision
 
-+ **UpdateBoard()** update visuals of the board
-+ **RemovePiece(int x, int y)** removes visual piece and reference in the matrix representation
-+ **setLocation(int x, int y)** allows the insertion of a piece into the matrix representation
-+ **clear()** clear the entire board of all pieces
-+ **getOccupied(int x, int y)** checks to see if a particular square is occupied, along with its current rank and player assigned
-+ **deleted getOccupiedBy()** redundant method.
-+ **placePiece(int x, int y)** places the piece? **not sure when this is needed yet**
-+ **finishBoard()** changes state to playing
-+ **isBoardClear()** checks if no squares have pieces, returns a boolean
+Class Variables
++ pieceArray
+
++ **Board() ** Creates the "default" set up of the board. It uses one for loop to move through the columns and one to move through the rows. It uses if statements to determine which type of piece to place there. The Piece objects are placed into the pieceArray in their correct positions.
++ **Board(String) ** Takes a String as input that will be interpreted at the Piece locations. It uses a for loop to go throught every Piece and case statements to determine what place and type were entered. The function will check if there are too many pieces or it was an invalid input as described in requirements. Otherwise the current piece is placed in the correct position in the array.
++ **setLocation(int, int, Piece)** Allows the insertion of a piece into the Array of Piece objects.
++ **clear()** Uses two for loops to clear the Array of all Pieces previosly placed.
++ **getOccupied(int, int)** Returns whether or not a certiain position in the array has a Piece object of is Null.
++ **getOccupiedBy(int, int)** Uses an if statement to determine if a position in the array is occupied by a Piece, if so it returns the Type of that Piece.
++ **getPiece(int, int)** Returns what Piece is at a specific position int the Array.
+
 
 Pieces
 ======
