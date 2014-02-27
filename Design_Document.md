@@ -97,16 +97,15 @@ Types
 
 Access Programs (aka methods)
 ======
-+ public Piece(pieceType : typeState, owner : player)
-+ getType()
-+ getOwner()
-+ setType(pieceType : typeState)
++ public Piece(pieceType : typeState, owner : player) -- constructor, doesnt belong in design document i think
++ getType() : typeState -- get piece type
++ getOwner() : player -- get owner of piece
++ setType(pieceType : typeState) : void -- changes type of piece
 
 Board
 ==========
-+ clear()
-+ isOccupied()
-+ getPiece(col : int, row : int)
-+ movePiece(fromCol : int, fromRow : int, toCol : int, toRow : int)
++ clear() : void -- removes all pieces off the board
++ getPiece(col : int, row : int) -- checks if there is a piece there, if there is, we return it.
++ movePiece(fromCol : int, fromRow : int, toCol : int, toRow : int) -- moves piece
     + we use isValidMovement within movePiece  
 + isValidMovement(fromCol : int, fromRow : int, toCol : int, toRow : int)
