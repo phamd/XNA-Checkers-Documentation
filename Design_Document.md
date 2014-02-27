@@ -82,3 +82,31 @@ Pieces()
 + deleted getLocationY() redundant method replaced by getLocation
 + **setType(String a)** allows the type of the piece to be specified by a string a to (red,black,rking,bking)
 + **setLocation(int x, int y)** allows the location of the piece to be specified
+
+
+
+Suggested Changes
+===
+
+Pieces
+====
+Types
+======
++ typeState |  is an enum with values stating if the piece is normal or a king
++ player | states if the piece is owned by black or white
+
+Access Programs (aka methods)
+======
++ public Piece(pieceType : typeState, owner : player)
++ getType()
++ getOwner()
++ setType(pieceType : typeState)
+
+Board
+==========
++ clear()
++ isOccupied()
++ getPiece(col : int, row : int)
++ movePiece(fromCol : int, fromRow : int, toCol : int, toRow : int)
+    + we use isValidMovement within movePiece  
++ isValidMovement(fromCol : int, fromRow : int, toCol : int, toRow : int)
