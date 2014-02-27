@@ -48,22 +48,23 @@
 \author{me 3}
 \date{}
 
-\begin{document}
+\begin{document} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \maketitle
 
 \tableofcontents
 
 \section{Introduction}
-    This document contains decomposition, uses relationship, and traceability.
+    This document contains decomposition (MG and MIS), uses relationship, and traceability.
     
-\section{Modules}
+\section{Module Guide}
 Modules are stuff.
 
 \subsection{Hardware Hiding Module}
+\iffalse
     \begin{tikzpicture}[scale=1.5, align=center]
         \node[root] {Hardware Hiding Module}
-        child {node[level 2, hyperlink node=mod:WirelessComs]{Wireless Communications}}
-        child {node[level 2, hyperlink node=mod:Clock]{Clock}}
+        child {node[level 2, hyperlink node=mod:Board]{Wireless Communications}}
+        child {node[level 2, hyperlink node=mod:Piece]{Clock}}
         child {node[level 2]{Positioning the nodes}}
         child {node[level 2]{Positioning the nodes}
             child[subA] {node[level 3]{Joe}}
@@ -83,54 +84,44 @@ Modules are stuff.
             child[subC] {node[level 3]{Barbara}}}
         ;
     \end{tikzpicture}
+\fi
     
-            
-
-    \subsubsection{Wireless Communications Hardware Hiding Module}\CustomLabel{mod:WirelessComs}
-        \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
-            Type            & Host/Onboard Module \\
-            Secret          & This module serves to hide the secret of what wireless communications hardware is being used \\
-            Responsibilites & This module is responsible for handling transmission using the wireless communications hardware. \\
-            Uses            & None \\
-            Design          & None \\
-        \end{tabularx}
-
-
-    \subsubsection{Clock Hardware Hiding Module}\CustomLabel{mod:Clock}
-        \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
-            Type            & Onboard Module \\
-            Secret          & This module serves to hide the secret of what clock hardware is being used. \\
-            Responsibilites & This module is responsible for direct monitoring and controlling of the clock hardware. \\
-            Uses            & \ref{mod:WirelessComs} \\
-            Design          & None \\
-        \end{tabularx}
-        
 \subsection{Behaviour Hiding Module}
 
+\subsection{Software Decision Hiding Module}
 
-\subsection{Software Hiding Module}
-
-    \subsubsection{ TEMPLATE XXX Hiding Module}\label{mod:TEMPLATE}
+    \subsubsection{Board Module}\CustomLabel{mod:Board}
         \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
-            Type            &  \\
-            Secret          & Explain why this is an XXX hiding module. \\
-            Uses            & \ref{labelhere} \\ % can call row 'Requirements' or 'Uses'
-            Code            &  reference to implementation \\ % This row can be called 'Design' or 'Implementation'
+            Type            & Software Module \\
+            Secret          & This module serves to hide the secret of how the board is defined internally. \\
+            Responsibilites & This module is responsible for holding the necessary components and attributes to describe and setup the board. \\
+            Uses            & \ref{mod:Piece} \\
+            Design          & \ref{mis:Board} \\
         \end{tabularx}
-        
+
+
+    \subsubsection{Piece Module}\CustomLabel{mod:Piece}
+        \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
+            Type            & Onboard Module \\
+            Secret          & This module hides and separates specific piece information. \\
+            Responsibilites & This will hold the necessary components to describe what a game piece will contain, which will be seperate from the game board. \\
+            Uses            & None \\
+            Design          & \ref{mis:Piece} \\
+        \end{tabularx}
+                
 \newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
+\section{Module Interface Specification}
 
-\section{Module Design}
-
-    \subsection{Wireless Communications Hardware Hiding Module}\CustomLabel{md:WirelessComs}
+    \subsection{Board Module}\CustomLabel{mis:Board}
     \subsubsection{Interface}
-        \begin{tabularx}{\linewidth}{ >{\bfseries}r Xp{5cm} }
+        \begin{tabularx}{\linewidth}{@{} >{\bfseries}r Xp{5cm} }
             Types           & WHAT IS TYPES? It's in page 13 of SE2AA4 design.pdf. \\
             
-            Constants       & \begin{tabular}[t]{l l} 
+            Constants       & \begin{tabular}[t]{@{} l p{8cm}} 
                                      & \\
                                     List off & does magic \\
                                     CONSTANTS & def of what constant does \\
@@ -138,21 +129,22 @@ Modules are stuff.
                                     here & \\ 
                               \end{tabular} \\
 
-            Access Programs & \begin{tabular}[t]{l l} 
+            Access Programs & \begin{tabular}[t]{@{} l p{8cm}}
                                      & \\
-                                    getNumBananas() & Gets int bananas \\
-                                    access & def \\
-                                    programszzzzzzzzzzzzzzzzzzzzzzzzzzzzz & zzzzzzzzzzzzzzzzzzzzz \\
-                                    here & \\ 
-                              \end{tabular} \\
-                              
+                                    Board() & Creates the default set up of the board. It uses one for loop to move through the columns and one to move through the rows. It uses if statements to determine which type of piece to place there. The Piece objects are placed into the pieceArray in their correct positions.\\
+                                    setLocation(int, int, Piece) &  \\
+                                    clear() & Clear the entire board of all pieces. \\
+                                    isOccupied(int, int) & Returns whether or not a certiain position has a Piece object. \\ 
+                                    getOccupiedBy(int, int) & Checks to see if a particular square is occupied, along with its current rank and player assigned. \\
+                                    getPiece(int, int) & Returns what Piece is at a specific position. \\
+                              \end{tabular}
         \end{tabularx}
         
     \subsubsection{Implementation}
         \begin{tabularx}{\linewidth}{ >{\bfseries}r Xp{5cm} }
-            Types           & WHAT IS TYPES? It's in page 13 of SE2AA4 design.pdf. \\
+            Types           & None. \\
             
-            Constants       & \begin{tabular}[t]{l l} 
+            Constants       & \begin{tabular}[t]{@{} l p{8cm}} 
                                  & \\
                                 List off & does magic \\
                                 CONSTANTS & def of what constant does \\
@@ -160,7 +152,7 @@ Modules are stuff.
                                 here & \\ 
                             \end{tabular} \\
                               
-            Variables       & \begin{tabular}[t]{l l} 
+            Variables       & \begin{tabular}[t]{@{} l p{8cm}} 
                                      & \\
                                     List off & does magic \\
                                     CONSTANTS & def of what constant does \\
@@ -168,12 +160,91 @@ Modules are stuff.
                                     here & \\ 
                               \end{tabular} \\
 
-            Access Programs & \begin{tabular}[t]{l l} 
+            Access Programs & \begin{tabular}[t]{@{} l l p{8cm}} 
                                      & \\
-                                    \bf{getNumBananas()} & \\
+                                    \bf{setLocation(col:int, row:int, piece:Piece)} & \\
+                                    Inputs &  col, row, piece\\
+                                    Outputs & None \\
+                                    Updates & pieceArray[] \\ 
+                                     & \\
+                                    \bf{clear()} & \\
                                     Inputs & None \\
-                                    Outputs & NumOfBananas \\
-                                    Updates & bananaCount \\ 
+                                    Outputs & None \\
+                                    Updates & None \\
+                                     & \\
+                                    \bf{isOccupied(col:int, row:int)} & \\
+                                    Inputs & None \\
+                                    Outputs & None \\
+                                    Updates & None \\ 
+                                     & \\
+                                    \bf{getOccupiedBy(col:int, row:int)} & \\
+                                    Inputs & None \\
+                                    Outputs & None \\
+                                    Updates & None \\
+                                     & \\
+                                    \bf{getPiece(col:int, row:int)} & \\
+                                    Inputs & None \\
+                                    Outputs & None \\
+                                    Updates & None \\                                     
+                              \end{tabular} \\
+                              
+        \end{tabularx}
+        
+
+        
+        
+        
+        
+    \subsection{Piece Module}\CustomLabel{mis:Piece}
+    \subsubsection{Interface}
+        \begin{tabularx}{\linewidth}{@{} >{\bfseries}r Xp{5cm} }
+            Types           & WHAT IS TYPES? It's in page 13 of SE2AA4 design.pdf. \\
+            
+            Constants       & \begin{tabular}[t]{@{} l p{8cm}} 
+                                     & \\
+                                    List off & does magic \\
+                                    CONSTANTS & def of what constant does \\
+                                    programszzzzzzzzzzzzzzzzzzzzzzzzzzzzz & zzzzzzzzzzzzzzzzzzzzz \\
+                                    here & \\ 
+                              \end{tabular} \\
+
+            Access Programs & \begin{tabular}[t]{@{} l p{8cm}}
+                                     & \\
+                                    Board() & Creates the default set up of the board. It uses one for loop to move through the columns and one to move through the rows. It uses if statements to determine which type of piece to place there. The Piece objects are placed into the pieceArray in their correct positions.\\
+                                    setLocation(int, int, Piece) & def \\
+                                    clear() & Clear the entire board of all pieces \\
+                                    isOccupied(int, int) & Returns whether or not a certiain position in the array has a Piece object of is Null. \\ 
+                                    getOccupiedBy(int, int) & Checks to see if a particular square is occupied, along with its current rank and player assigned. \\
+                                    getPiece(int, int) & Returns what Piece is at a specific position int the Array. \\
+                              \end{tabular}
+        \end{tabularx}
+        
+    \subsubsection{Implementation}
+        \begin{tabularx}{\linewidth}{ >{\bfseries}r Xp{5cm} }
+            Types           & None. \\
+            
+            Constants       & \begin{tabular}[t]{@{} l p{8cm}} 
+                                 & \\
+                                List off & does magic \\
+                                CONSTANTS & def of what constant does \\
+                                programszzzzzzzzzzzzzzzzzzzzzzzzzzzzz & zzzzzzzzzzzzzzzzzzzzz \\
+                                here & \\ 
+                            \end{tabular} \\
+                              
+            Variables       & \begin{tabular}[t]{@{} l p{8cm}} 
+                                     & \\
+                                    List off & does magic \\
+                                    CONSTANTS & def of what constant does \\
+                                    programszzzzzzzzzzzzzzzzzzzzzzzzzzzzz & zzzzzzzzzzzzzzzzzzzzz \\
+                                    here & \\ 
+                              \end{tabular} \\
+
+            Access Programs & \begin{tabular}[t]{@{} l l p{8cm}} 
+                                     & \\
+                                    \bf{setLocation(col:int, row:int, piece:Piece)} & \\
+                                    Inputs &  col, row, piece\\
+                                    Outputs & None \\
+                                    Updates & pieceArray[] \\ 
                                      & \\
                                     \bf{xxxanas()} & \\
                                     Inputs & None \\
@@ -183,7 +254,6 @@ Modules are stuff.
                               
         \end{tabularx}
         
-
 \end{document}
 
 
