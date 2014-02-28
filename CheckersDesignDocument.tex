@@ -54,7 +54,7 @@
 \tableofcontents
 
 \section{Introduction}
-    This document contains decomposition (MG and MIS), uses relationship, and traceability.
+    This document contains the decomposition, uses relationship, and traceability.
     
 \section{Module Guide}
 Modules are stuff.
@@ -86,9 +86,17 @@ Modules are stuff.
     \end{tikzpicture}
 \fi
     
-\subsection{Behaviour Hiding Module}
+    \subsubsection{Input Module}\CustomLabel{mod:Piece}
+    \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
+        Type            & Hardware Module \\
+        Secret          & This module translate mouse clicks and keyboard presses to be used by the rest of the software. \\
+        Responsibilites & This module will take mouse and keyboard input and convert it to software usable states. \\
+        Uses            & None \\
+        Design          & None \\
+        Explanation     & The input module is a hardware hiding module since it translates hardware inputs to software. \\
+    \end{tabularx}
 
-\subsection{Software Decision Hiding Module}
+\subsection{Behaviour Hiding Module}
 
     \subsubsection{Piece Module}\CustomLabel{mod:Piece}
         \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
@@ -97,9 +105,11 @@ Modules are stuff.
             Responsibilites & This will hold the necessary components to describe what a game piece will contain, which will be seperate from the game board. \\
             Uses            & None \\
             Design          & \ref{mis:Piece} \\
+            Explanation     & I DONT KNOW: The piece is a part of behaviour hiding since the piece module holds specific piece information and outputs values needed by other modules. \\
         \end{tabularx}
-                
-                
+
+\subsection{Software Decision Hiding Module}
+
     \subsubsection{Board Module}\CustomLabel{mod:Board}
         \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
             Type            & Software Module \\
@@ -107,7 +117,9 @@ Modules are stuff.
             Responsibilites & This module is responsible for holding the necessary components and attributes to setup the board and describe piece locations. \\
             Uses            & \ref{mod:Piece} \\
             Design          & \ref{mis:Board} \\
+            Explanation     & The board is a part of software decision hiding since the board implements a data structure that holds the placement of the pieces, this data structure might be changed for increased performance. Another software decision is deciding how to take user input to parse the placement of pieces. \\
         \end{tabularx}
+        
         
         
 \newpage
@@ -115,7 +127,7 @@ Modules are stuff.
 
 
 
-\section{Module Interface Specification}
+\section{Module Design (MIS and MID)}
 
 
         
