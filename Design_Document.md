@@ -54,15 +54,11 @@ Secret: This module encapsulates the Piece module.
 Responsibilities: The board module tracks where all the pieces are located. It contains methods to check where pieces are and to add pieces to the board. 
 The Board Class will hold an array of Piece objects. It contains methods to check where pieces are and to add pieces to the board. 
 
-+ **UpdateBoard()** update visuals of the board
-+ **RemovePiece(int, int)** removes visual piece and reference in the matrix representation
++ **getPiece(int, int)** checks to see if a particular square is occupied, along with its current rank and player assigned
++ **getOccupied()**
++ **getOccupiedBy()**
 + **setLocation(int, int)** allows the insertion of a piece into the matrix representation
 + **clear()** clear the entire board of all pieces
-+ **getOccupied(int, int)** checks to see if a particular square is occupied, along with its current rank and player assigned
-+ **deleted getOccupiedBy()** redundant method.
-+ **placePiece(int, int)** places the piece
-+ **finishBoard()** changes state to playing
-+ **isBoardClear()** checks if no squares have pieces, returns a boolean
 
 Implementation
 --------------
@@ -72,13 +68,14 @@ Implementation
 
 #### Class Functions
 
-+ **Board()**           Public : Constructor :: Creates the "default" set up of the board. It uses one for loop to move through the columns and one to move through the rows. It uses if statements to determine which type of piece to place there. The Piece objects are placed into the pieceArray in their correct positions.
-+ **Board(String)**     Public : Constructor :: Takes a String as input that will be interpreted at the Piece locations. It uses a for loop to go throught every Piece and case statements to determine what place and type were entered. The function will check if there are too many pieces or it was an invalid input as described in requirements. Otherwise the current piece is placed in the correct position in the array.
-+ **setLocation(int, int, Piece)**  Public : Void :: Allows the insertion of a piece into the Array of Piece objects.
-+ **clear()**           Public : Void :: Uses two for loops to clear the Array of all Pieces previosly placed.
++ should not be here **Board()**           Public : Constructor :: Creates the "default" set up of the board. It uses one for loop to move through the columns and one to move through the rows. It uses if statements to determine which type of piece to place there. The Piece objects are placed into the pieceArray in their correct positions.
++ should not be here **Board(String)**     Public : Constructor :: Takes a String as input that will be interpreted at the Piece locations. It uses a for loop to go throught every Piece and case statements to determine what place and type were entered. The function will check if there are too many pieces or it was an invalid input as described in requirements. Otherwise the current piece is placed in the correct position in the array.
 + **getOccupied(int, int)**         Public : Bool :: Returns whether or not a certiain position in the array has a Piece object of is Null.
 + **getOccupiedBy(int, int)**       Public : typeStateUses :: an if statement to determine if a position in the array is occupied by a Piece, if so it returns the Type of that Piece.
 + **getPiece(int, int)**            Public : PieceReturns :: what Piece is at a specific position int the Array.
++ **setLocation(int, int, Piece)**  Public : Void :: Allows the insertion of a piece into the Array of Piece objects.
++ **clear()**           Public : Void :: Uses two for loops to clear the Array of all Pieces previosly placed.
+
 
 Pieces
 ======
@@ -89,21 +86,31 @@ This allows for changes in the game easily and seperate from the board module
 Responsibilities: The piece module contains all the data contained within individual pieces, such as the type, and player it belongs to. 
 
 + **getType()** returns whether the piece is a king or a normal piece
-+ **getLocation()** returns the location of a specified piece, returning X and Y value
-+ **setType(String)** allows the type of the piece to be specified by a string a to (red,black,rking,bking)
++ **getOwner()**
++ **getLocationX()** returns the location of a specified piece, returning X and Y value
++ **getLocationY()**
++ **getValidMovement(int, int)**
++ **setType(typeState)** allows the type of the piece to be specified by a string a to (red,black,rking,bking)
 + **setLocation(int, int)** allows the location of the piece to be specified
 
 Implementation
 --------------
 #### Class Variables
-+ **column**            Private :
-+ **row**               Private :
-+ **pieceType**         Private :
-+ **owner**             Private :
-+ **enum : typeState**  Private :
-+ **enum : player**     
++ **column**            Private : Int ::
++ **row**               Private : Int ::
++ **pieceType**         Private : typeState ::
++ **owner**             Private : Player ::
++ **enum : typeState**  Private : 
++ **enum : player**     Private : 
 
 #### Class Functions
++ **getType()**         Public : typeState ::
++ **getOwner()**        Public : player ::
++ **getLocationX()**    Public : int ::
++ **getLocationY()**    Public : int ::
++ **getValidMovement(int, int)**    Public : bool ::
++ **setType(typeState)**    Public : void ::
++ **setLocation(int, int)** Public : void ::
 
 Game1
 ======
@@ -125,13 +132,12 @@ Implementation
 + **mouseClickedPiece** Private : View_Clickable ::
 
 #### Class Functions
-+ **Game1()**       Public : 
-+ **Initialize()**  Public :
-+ **LoadContent()** Public : 
-+ **UnloadContent()**   Public :
-+ **Update(GameTime)**  Public :
-+ **Draw(GameTime)**    Public :
-+ **TakeInput()**   Public :
++ **Initialize()**  Public : void ::
++ **LoadContent()** Public : void ::
++ **UnloadContent()**   Public : void ::
++ **Update(GameTime)**  Public : void ::
++ **Draw(GameTime)**    Public : void ::
++ **TakeInput()**   Public : void ::
 
 ViewClickable
 =============
@@ -142,17 +148,15 @@ Graphics implementation
 Hardware Behaviour
 
 #### Class Variables
-+ **position** 
-+ **size**
-+ **scale**
++ **position**  Private : Vector2 ::
++ **size**      Private : Vector2 ::
++ **scale**     Private : float ::
 
 #### Class Functions
-
-+ **View_Clickable()**
-+ **Intersect()**
-+ **draw()**
-+ **getPosition()**
-+ **setPosition()**
++ **Intersect()**       Public : bool ::
++ **draw()**            Public : void ::
++ **getPosition()**     Public : Vector2 ::
++ **setPosition()**     Public : void ::
 
 
 Self Defined Types
