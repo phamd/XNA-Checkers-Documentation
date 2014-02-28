@@ -66,11 +66,11 @@ The Board Class will hold an array of Piece objects. It contains methods to chec
 
 Implementation
 --------------
-####Class Variables
+#### Class Variables
 
 + **pieceArray** : Private : Array :: 
 
-####Class Functions
+#### Class Functions
 
 + **Board()**           Public : Constructor :: Creates the "default" set up of the board. It uses one for loop to move through the columns and one to move through the rows. It uses if statements to determine which type of piece to place there. The Piece objects are placed into the pieceArray in their correct positions.
 + **Board(String)**     Public : Constructor :: Takes a String as input that will be interpreted at the Piece locations. It uses a for loop to go throught every Piece and case statements to determine what place and type were entered. The function will check if there are too many pieces or it was an invalid input as described in requirements. Otherwise the current piece is placed in the correct position in the array.
@@ -95,7 +95,7 @@ Responsibilities: The piece module contains all the data contained within indivi
 
 Implementation
 --------------
-####Class Variables
+#### Class Variables
 + **column**            Private :
 + **row**               Private :
 + **pieceType**         Private :
@@ -103,7 +103,7 @@ Implementation
 + **enum : typeState**  Private :
 + **enum : player**     
 
-####Class Functions
+#### Class Functions
 
 Game1
 ======
@@ -114,7 +114,7 @@ Game1 will not require an interface as it does not require one, we need a reason
 
 Implementation
 --------------
-####Class Variables
+#### Class Variables
 + **currentstate**      Private : State ::
 + **keyState**          Private : State ::
 + **input**             Private : String :: 
@@ -124,7 +124,7 @@ Implementation
 + **mouseStatePrev**    Private : MouseState ::
 + **mouseClickedPiece** Private : View_Clickable ::
 
-####Class Functions
+#### Class Functions
 + **Game1()**       Public : 
 + **Initialize()**  Public :
 + **LoadContent()** Public : 
@@ -137,16 +137,16 @@ ViewClickable
 =============
 Implementation
 --------------
->Software Decision Behaviour Hiding, as this class will be used to update the mouse movements of the game 
->Graphics implementation
->Hardware Behaviour
+Software Decision Behaviour Hiding, as this class will be used to update the mouse movements of the game 
+Graphics implementation
+Hardware Behaviour
 
-####Class Variables
+#### Class Variables
 + **position** 
 + **size**
 + **scale**
 
-####Class Functions
+#### Class Functions
 
 + **View_Clickable()**
 + **Intersect()**
