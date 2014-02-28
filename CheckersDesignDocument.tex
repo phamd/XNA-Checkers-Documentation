@@ -90,25 +90,26 @@ Modules are stuff.
 
 \subsection{Software Decision Hiding Module}
 
-    \subsubsection{Board Module}\CustomLabel{mod:Board}
-        \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
-            Type            & Software Module \\
-            Secret          & This module serves to hide the secret of how the board is defined internally. \\
-            Responsibilites & This module is responsible for holding the necessary components and attributes to describe and setup the board. \\
-            Uses            & \ref{mod:Piece} \\
-            Design          & \ref{mis:Board} \\
-        \end{tabularx}
-
-
     \subsubsection{Piece Module}\CustomLabel{mod:Piece}
         \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
-            Type            & Onboard Module \\
+            Type            & Software Module \\
             Secret          & This module hides and separates specific piece information. \\
             Responsibilites & This will hold the necessary components to describe what a game piece will contain, which will be seperate from the game board. \\
             Uses            & None \\
             Design          & \ref{mis:Piece} \\
         \end{tabularx}
                 
+                
+    \subsubsection{Board Module}\CustomLabel{mod:Board}
+        \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
+            Type            & Software Module \\
+            Secret          & This module serves to hide the secret of how the board is defined internally. \\
+            Responsibilites & This module is responsible for holding the necessary components and attributes to setup the board and describe piece locations. \\
+            Uses            & \ref{mod:Piece} \\
+            Design          & \ref{mis:Board} \\
+        \end{tabularx}
+        
+        
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -116,28 +117,87 @@ Modules are stuff.
 
 \section{Module Interface Specification}
 
-    \subsection{Board Module}\CustomLabel{mis:Board}
+
+        
+        
+    \subsection{Piece Module}\CustomLabel{mis:Piece}
     \subsubsection{Interface}
         \begin{tabularx}{\linewidth}{@{} >{\bfseries}r Xp{5cm} }
-            Types           & WHAT IS TYPES? It's in page 13 of SE2AA4 design.pdf. \\
-            
+            Types           & \begin{tabular}[t]{@{} l p{8cm}} 
+                                     & \\
+                                    typeState & enumerate if the piece is normal or king \\
+                                    player & enumerate if piece owned by Black or White \\
+                              \end{tabular} \\
+                              
             Constants       & \begin{tabular}[t]{@{} l p{8cm}} 
                                      & \\
-                                    List off & does magic \\
-                                    CONSTANTS & def of what constant does \\
-                                    programszzzzzzzzzzzzzzzzzzzzzzzzzzzzz & zzzzzzzzzzzzzzzzzzzzz \\
-                                    here & \\ 
+                                    None & \\
                               \end{tabular} \\
 
             Access Programs & \begin{tabular}[t]{@{} l p{8cm}}
                                      & \\
-                                    Board() & Creates the default set up of the board. It uses one for loop to move through the columns and one to move through the rows. It uses if statements to determine which type of piece to place there. The Piece objects are placed into the pieceArray in their correct positions.\\
-                                    setLocation(int, int, Piece) &  \\
-                                    clear() & Clear the entire board of all pieces. \\
-                                    isOccupied(int, int) & Returns whether or not a certiain position has a Piece object. \\ 
-                                    getOccupiedBy(int, int) & Checks to see if a particular square is occupied, along with its current rank and player assigned. \\
-                                    getPiece(int, int) & Returns what Piece is at a specific position. \\
+                                    getType() & Retrieves the piece's current type. \\
+                                    setType(newType : typeState) & Changes the piece's type. \\ 
+                                    getOwner() & Says who owns the piece. \\
                               \end{tabular}
+        \end{tabularx}
+        
+    \subsubsection{Implementation}
+        \begin{tabularx}{\linewidth}{ >{\bfseries}r Xp{5cm} }
+            Variables       & \begin{tabular}[t]{@{} l p{8cm}} 
+                                     & \\
+                                    pieceType & holds current piece type \\
+                                    owner & holds information of the piece's owner \\
+                              \end{tabular} \\
+
+            Access Programs & \begin{tabular}[t]{@{} l l p{8cm}} 
+                                     & \\
+                                    \bf{getType()} & \\
+                                    Inputs &  None \\
+                                    Outputs & pieceType : typeState \\
+                                    Updates & None \\ 
+                                     & \\
+                                    \bf{setType(newType : typeState)} & \\
+                                    Inputs & newType \\
+                                    Outputs & None \\
+                                    Updates & pieceType \\ 
+                                     & \\
+                                    \bf{getOwner()} & \\
+                                    Inputs & None \\
+                                    Outputs & owner \\
+                                    Updates & None \\ 
+                              \end{tabular} \\
+                              
+        \end{tabularx}
+        
+        
+        
+        
+        
+        
+            \subsection{Board Module}\CustomLabel{mis:Board}
+    \subsubsection{Interface}
+        \begin{tabularx}{\linewidth}{@{} >{\bfseries}r Xp{5cm} }
+            Types           & \begin{tabular}[t]{@{} l p{8cm}} 
+                                     & \\
+                                    None & \\
+                              \end{tabular} \\
+                              
+            Constants       & \begin{tabular}[t]{@{} l p{8cm}} 
+                                     & \\
+                                    None & \\
+                              \end{tabular} \\
+
+            Access Programs & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
+                                     & \\
+                                    clear() & Removes all pieces from the board. \\
+                                     & \\
+                                    placePiece(col : int, row : int, piece : Piece) & Places the piece on the board while checking if the placement is legal (in terms of checkers). \\
+                                     & \\
+                                    movePiece(fromCol : int, fromRow : int, toCol : int, toRow : int) & Moves the piece from starting to end positions. \\
+                                     & \\
+                                    getPiece(int, int) & This method is used to determine if a piece exists on a square of the board. If the piece does exist, we pass it along to the caller. \\ 
+                             \end{tabular}
         \end{tabularx}
         
     \subsubsection{Implementation}
@@ -191,68 +251,6 @@ Modules are stuff.
         \end{tabularx}
         
 
-        
-        
-        
-        
-    \subsection{Piece Module}\CustomLabel{mis:Piece}
-    \subsubsection{Interface}
-        \begin{tabularx}{\linewidth}{@{} >{\bfseries}r Xp{5cm} }
-            Types           & WHAT IS TYPES? It's in page 13 of SE2AA4 design.pdf. \\
-            
-            Constants       & \begin{tabular}[t]{@{} l p{8cm}} 
-                                     & \\
-                                    List off & does magic \\
-                                    CONSTANTS & def of what constant does \\
-                                    programszzzzzzzzzzzzzzzzzzzzzzzzzzzzz & zzzzzzzzzzzzzzzzzzzzz \\
-                                    here & \\ 
-                              \end{tabular} \\
-
-            Access Programs & \begin{tabular}[t]{@{} l p{8cm}}
-                                     & \\
-                                    Board() & Creates the default set up of the board. It uses one for loop to move through the columns and one to move through the rows. It uses if statements to determine which type of piece to place there. The Piece objects are placed into the pieceArray in their correct positions.\\
-                                    setLocation(int, int, Piece) & def \\
-                                    clear() & Clear the entire board of all pieces \\
-                                    isOccupied(int, int) & Returns whether or not a certiain position in the array has a Piece object of is Null. \\ 
-                                    getOccupiedBy(int, int) & Checks to see if a particular square is occupied, along with its current rank and player assigned. \\
-                                    getPiece(int, int) & Returns what Piece is at a specific position int the Array. \\
-                              \end{tabular}
-        \end{tabularx}
-        
-    \subsubsection{Implementation}
-        \begin{tabularx}{\linewidth}{ >{\bfseries}r Xp{5cm} }
-            Types           & None. \\
-            
-            Constants       & \begin{tabular}[t]{@{} l p{8cm}} 
-                                 & \\
-                                List off & does magic \\
-                                CONSTANTS & def of what constant does \\
-                                programszzzzzzzzzzzzzzzzzzzzzzzzzzzzz & zzzzzzzzzzzzzzzzzzzzz \\
-                                here & \\ 
-                            \end{tabular} \\
-                              
-            Variables       & \begin{tabular}[t]{@{} l p{8cm}} 
-                                     & \\
-                                    List off & does magic \\
-                                    CONSTANTS & def of what constant does \\
-                                    programszzzzzzzzzzzzzzzzzzzzzzzzzzzzz & zzzzzzzzzzzzzzzzzzzzz \\
-                                    here & \\ 
-                              \end{tabular} \\
-
-            Access Programs & \begin{tabular}[t]{@{} l l p{8cm}} 
-                                     & \\
-                                    \bf{setLocation(col:int, row:int, piece:Piece)} & \\
-                                    Inputs &  col, row, piece\\
-                                    Outputs & None \\
-                                    Updates & pieceArray[] \\ 
-                                     & \\
-                                    \bf{xxxanas()} & \\
-                                    Inputs & None \\
-                                    Outputs & NumOfBananas \\
-                                    Updates & bananaCount \\ 
-                              \end{tabular} \\
-                              
-        \end{tabularx}
         
 \end{document}
 
