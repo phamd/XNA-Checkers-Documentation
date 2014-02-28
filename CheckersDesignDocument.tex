@@ -152,7 +152,7 @@ Modules are stuff.
 
             Access Programs & \begin{tabular}[t]{@{} l l p{8cm}} 
                                      & \\
-                                    \bf{getType()} & \\
+                                    \bf{getType()} : typeState & \\
                                     Inputs &  None \\
                                     Outputs & pieceType \\
                                     Updates & None \\ 
@@ -162,7 +162,7 @@ Modules are stuff.
                                     Outputs & None \\
                                     Updates & pieceType \\ 
                                      & \\
-                                    \bf{getOwner()} & \\
+                                    \bf{getOwner()} : player & \\
                                     Inputs & None \\
                                     Outputs & owner \\
                                     Updates & None \\ 
@@ -196,7 +196,7 @@ Modules are stuff.
                                      & \\
                                     movePiece(fromCol : int, fromRow : int, toCol : int, toRow : int) & Moves the piece from starting to end positions while checking if the movement is valid (in terms of checkers). \\
                                      & \\
-                                    getPiece(col : int, row : int) & This method is used to determine if a piece exists on a square of the board. If the piece does exist, we pass it along to the caller. \\ 
+                                    getPiece(col : int, row : int)& This method is used to determine if a piece exists on a square of the board. If the piece does exist, we pass it along to the caller. \\ 
                              \end{tabular}
         \end{tabularx}
         
@@ -234,7 +234,7 @@ Modules are stuff.
                                     Outputs & None \\
                                     Updates & None \\
                                      & \\
-                                    \bf{getPiece(col : int, row : int)} & \\
+                                    \bf{getPiece(col : int, row : int)} : Piece & \\
                                     Inputs & col, row \\
                                     Outputs & piece \\
                                     Updates & None \\                                     
