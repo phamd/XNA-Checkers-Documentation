@@ -146,15 +146,15 @@ Modules are stuff.
         \begin{tabularx}{\linewidth}{ >{\bfseries}r Xp{5cm} }
             Variables       & \begin{tabular}[t]{@{} l p{8cm}} 
                                      & \\
-                                    pieceType & holds current piece type \\
-                                    owner & holds information of the piece's owner \\
+                                    pieceType : typeState & holds current piece type \\
+                                    owner : player & holds information of the piece's owner \\
                               \end{tabular} \\
 
             Access Programs & \begin{tabular}[t]{@{} l l p{8cm}} 
                                      & \\
                                     \bf{getType()} & \\
                                     Inputs &  None \\
-                                    Outputs & pieceType : typeState \\
+                                    Outputs & pieceType \\
                                     Updates & None \\ 
                                      & \\
                                     \bf{setType(newType : typeState)} & \\
@@ -194,57 +194,49 @@ Modules are stuff.
                                      & \\
                                     placePiece(col : int, row : int, piece : Piece) & Places the piece on the board while checking if the placement is legal (in terms of checkers). \\
                                      & \\
-                                    movePiece(fromCol : int, fromRow : int, toCol : int, toRow : int) & Moves the piece from starting to end positions. \\
+                                    movePiece(fromCol : int, fromRow : int, toCol : int, toRow : int) & Moves the piece from starting to end positions while checking if the movement is valid (in terms of checkers). \\
                                      & \\
-                                    getPiece(int, int) & This method is used to determine if a piece exists on a square of the board. If the piece does exist, we pass it along to the caller. \\ 
+                                    getPiece(col : int, row : int) & This method is used to determine if a piece exists on a square of the board. If the piece does exist, we pass it along to the caller. \\ 
                              \end{tabular}
         \end{tabularx}
         
     \subsubsection{Implementation}
         \begin{tabularx}{\linewidth}{ >{\bfseries}r Xp{5cm} }
-            Types           & None. \\
-            
+            Types           & \begin{tabular}[t]{@{} l p{8cm}} 
+                                 & \\
+                                None & \\
+                            \end{tabular} \\
+                            
             Constants       & \begin{tabular}[t]{@{} l p{8cm}} 
                                  & \\
-                                List off & does magic \\
-                                CONSTANTS & def of what constant does \\
-                                programszzzzzzzzzzzzzzzzzzzzzzzzzzzzz & zzzzzzzzzzzzzzzzzzzzz \\
-                                here & \\ 
+                                None & \\
                             \end{tabular} \\
                               
             Variables       & \begin{tabular}[t]{@{} l p{8cm}} 
                                      & \\
-                                    List off & does magic \\
-                                    CONSTANTS & def of what constant does \\
-                                    programszzzzzzzzzzzzzzzzzzzzzzzzzzzzz & zzzzzzzzzzzzzzzzzzzzz \\
-                                    here & \\ 
+                                    pieceArray[] & The board will be implemented as an array. \\
                               \end{tabular} \\
 
-            Access Programs & \begin{tabular}[t]{@{} l l p{8cm}} 
-                                     & \\
-                                    \bf{setLocation(col:int, row:int, piece:Piece)} & \\
-                                    Inputs &  col, row, piece\\
-                                    Outputs & None \\
-                                    Updates & pieceArray[] \\ 
+            Access Programs & \begin{tabular}[t]{@{} p{6cm} p{8cm}} 
                                      & \\
                                     \bf{clear()} & \\
                                     Inputs & None \\
-                                    Outputs & None \\
-                                    Updates & None \\
-                                     & \\
-                                    \bf{isOccupied(col:int, row:int)} & \\
-                                    Inputs & None \\
-                                    Outputs & None \\
+                                    Outputs & pieceArray[] \\
                                     Updates & None \\ 
                                      & \\
-                                    \bf{getOccupiedBy(col:int, row:int)} & \\
+                                    \bf{placePiece(col : int, row : int, piece : Piece)} & \\
+                                    Inputs &  col, row, piece \\
+                                    Outputs & pieceArray[] \\
+                                    Updates & None \\ 
+                                     & \\
+                                    \bf{movePiece(fromCol : int, fromRow : int, toCol : int, toRow : int)} & \\
                                     Inputs & None \\
                                     Outputs & None \\
                                     Updates & None \\
                                      & \\
-                                    \bf{getPiece(col:int, row:int)} & \\
-                                    Inputs & None \\
-                                    Outputs & None \\
+                                    \bf{getPiece(col : int, row : int)} & \\
+                                    Inputs & col, row \\
+                                    Outputs & piece \\
                                     Updates & None \\                                     
                               \end{tabular} \\
                               
