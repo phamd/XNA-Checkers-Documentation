@@ -54,6 +54,7 @@ Secret: This module encapsulates the Piece module.
 Responsibilities: The board module tracks where all the pieces are located. It contains methods to check where pieces are and to add pieces to the board. 
 The Board Class will hold an array of Piece objects. It contains methods to check where pieces are and to add pieces to the board. 
 
++ **setUpBoard(string)** sets up board based on input
 + **getPiece(int, int)** checks to see if a particular square is occupied, along with its current rank and player assigned
 + **getOccupied()**
 + **getOccupiedBy()**
@@ -70,7 +71,7 @@ Implementation
 
 + should not be here **Board()**           Public : Constructor :: Creates the "default" set up of the board. It uses one for loop to move through the columns and one to move through the rows. 
                                *           It uses if statements to determine which type of piece to place there. The Piece objects are placed into the pieceArray in their correct positions.
-+ should not be here **Board(String)**     Public : Constructor :: Takes a String as input that will be interpreted at the Piece locations. It uses a for loop to go throught every Piece and case statements to determine what place and type were entered. 
++ **setUpBoard(string)**     Public : Constructor :: Takes a String as input that will be interpreted at the Piece locations. It uses a for loop to go throught every Piece and case statements to determine what place and type were entered. 
                                      *     The function will check if there are too many pieces or it was an invalid input as described in requirements. Otherwise the current piece is placed in the correct position in the array.
 + **getOccupied(int, int)**         Public : Bool :: Returns whether or not a certiain position in the array has a Piece object of is Null.
 + **getOccupiedBy(int, int)**       Public : typeStateUses :: an if statement to determine if a position in the array is occupied by a Piece, if so it returns the Type of that Piece.
