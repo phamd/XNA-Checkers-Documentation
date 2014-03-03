@@ -68,8 +68,10 @@ Implementation
 
 #### Class Functions
 
-+ should not be here **Board()**           Public : Constructor :: Creates the "default" set up of the board. It uses one for loop to move through the columns and one to move through the rows. It uses if statements to determine which type of piece to place there. The Piece objects are placed into the pieceArray in their correct positions.
-+ should not be here **Board(String)**     Public : Constructor :: Takes a String as input that will be interpreted at the Piece locations. It uses a for loop to go throught every Piece and case statements to determine what place and type were entered. The function will check if there are too many pieces or it was an invalid input as described in requirements. Otherwise the current piece is placed in the correct position in the array.
++ should not be here **Board()**           Public : Constructor :: Creates the "default" set up of the board. It uses one for loop to move through the columns and one to move through the rows. 
+                               *           It uses if statements to determine which type of piece to place there. The Piece objects are placed into the pieceArray in their correct positions.
++ should not be here **Board(String)**     Public : Constructor :: Takes a String as input that will be interpreted at the Piece locations. It uses a for loop to go throught every Piece and case statements to determine what place and type were entered. 
+                                     *     The function will check if there are too many pieces or it was an invalid input as described in requirements. Otherwise the current piece is placed in the correct position in the array.
 + **getOccupied(int, int)**         Public : Bool :: Returns whether or not a certiain position in the array has a Piece object of is Null.
 + **getOccupiedBy(int, int)**       Public : typeStateUses :: an if statement to determine if a position in the array is occupied by a Piece, if so it returns the Type of that Piece.
 + **getPiece(int, int)**            Public : PieceReturns :: what Piece is at a specific position int the Array.
@@ -122,22 +124,27 @@ Game1 will not require an interface as it does not require one, we need a reason
 Implementation
 --------------
 #### Class Variables
-+ **currentstate**      Private : State ::
-+ **keyState**          Private : State ::
-+ **input**             Private : String :: 
-+ **board**             Private : Board ::
-+ **pieceList**         Private : List ::
-+ **mouseStateCurrent** Private : MouseState ::
-+ **mouseStatePrev**    Private : MouseState ::
-+ **mouseClickedPiece** Private : View_Clickable ::
++ **currentstate**      Private : State :: Describes the current state of the program such as what screen is currently being displayed to the user
++ **keyState**          Private : State :: Describes the user input via the keyboard
++ **input**             Private : String :: Is used to collect the commands from the terminal input
++ **board**             Private : Board :: The main board to initlaize for the game
++ **pieceList**         Private : List :: A list of all pieces that are to be placed on the board
++ **mouseStateCurrent** Private : MouseState :: Used to describe the current mouse state such as location = if the user has clicked, and which button left or right
++ **mouseStatePrev**    Private : MouseState :: Holds the previous mouse state
++ **mouseClickedPiece** Private : View_Clickable :: Get the piece that the mouse has clicked on, and will allow for the piece to follow the mouse when dragging
 
 #### Class Functions
-+ **Initialize()**  Public : void ::
-+ **LoadContent()** Public : void ::
-+ **UnloadContent()**   Public : void ::
-+ **Update(GameTime)**  Public : void ::
-+ **Draw(GameTime)**    Public : void ::
-+ **TakeInput()**   Public : void ::
++ **Initialize()**  Public : void :: Allows the game to perform any initialization it needs to before starting to run. 
+                 *  This is where it can query for any required services and load any non-graphic
+                 *  related content.  Calling base.Initialize will enumerate through any components
+         and initialize them as well.
++ **LoadContent()** Public : void ::  LoadContent will be called once per game and is the place to load all required content to create the game,
+                  * loads all textures to create the gui on the game
++ **UnloadContent()**   Public : void :: UnloadContent will be called once per game and is the place to unload all content.
++ **Update(GameTime)**  Public : void ::  Allows the game to run logic such as updating the world, checking for collisions, gathering input, and playing audio.
++ **Draw(GameTime)**    Public : void :: The game draws different things depending on $currentState. The function clears the screen the redraws the area
+                   *    that needs to be updated again.
++ **TakeInput()**   Public : void :: This function will ask the user for a string to parse as the board setup. There are no arguments, the input string will be null before entering the function
 
 ViewClickable
 =============
