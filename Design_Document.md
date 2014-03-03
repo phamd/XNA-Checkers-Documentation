@@ -169,9 +169,11 @@ Hardware Behaviour
 Self Defined Types
 ==================
 ENUM
-=====
+----
 Suggested Changes
-===
+
++ **typeState** (Normal, King, Null)
++ **player** (Black, White, Null)
 
 Pieces
 ====
