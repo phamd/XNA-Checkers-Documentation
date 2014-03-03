@@ -166,18 +166,18 @@ Modules are stuff.
                                      & \\
                                     \bf{getType()} : typeState & \\
                                     Inputs &  None \\
+                                    Updates & None \\
                                     Outputs & pieceType \\
-                                    Updates & None \\ 
                                      & \\
                                     \bf{setType(newType : typeState)} & \\
                                     Inputs & newType \\
-                                    Outputs & None \\
                                     Updates & pieceType \\ 
+                                    Outputs & None \\
                                      & \\
                                     \bf{getOwner()} : player & \\
                                     Inputs & None \\
-                                    Outputs & owner \\
-                                    Updates & None \\ 
+                                    Updates & None \\
+                                    Outputs & owner \\ 
                               \end{tabular} \\
                               
         \end{tabularx}
@@ -186,8 +186,7 @@ Modules are stuff.
         
         
         
-        
-            \subsection{Board Module}\CustomLabel{mis:Board}
+    \subsection{Board Module}\CustomLabel{mis:Board}
     \subsubsection{Interface}
         \begin{tabularx}{\linewidth}{@{} >{\bfseries}r Xp{5cm} }
             Types           & \begin{tabular}[t]{@{} l p{8cm}} 
@@ -202,13 +201,16 @@ Modules are stuff.
 
             Access Programs & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
                                      & \\
-                                    clear() & Removes all pieces from the board. \\
+                                    setUpBoard() & Sets up board based on user input. \\
+                                     & \\
+                                    getPiece(col : int, row : int)& This method is used to determine if a piece exists on a square of the board. If the piece does exist, we pass it along to the caller. \\ 
                                      & \\
                                     placePiece(col : int, row : int, piece : Piece) & Places the piece on the board while checking if the placement is legal (in terms of checkers). \\
                                      & \\
                                     movePiece(fromCol : int, fromRow : int, toCol : int, toRow : int) & Moves the piece from starting to end positions while checking if the movement is valid (in terms of checkers). \\
                                      & \\
-                                    getPiece(col : int, row : int)& This method is used to determine if a piece exists on a square of the board. If the piece does exist, we pass it along to the caller. \\ 
+                                    clear() & Removes all pieces from the board. \\
+                                     & \\
                              \end{tabular}
         \end{tabularx}
         
@@ -229,26 +231,33 @@ Modules are stuff.
                                     pieceArray[] & The board will be implemented as an array. \\
                               \end{tabular} \\
 
-            Access Programs & \begin{tabular}[t]{@{} p{6cm} p{8cm}} 
+            Access Programs & \begin{tabular}[t]{@{} p{4cm} p{7cm}} 
                                      & \\
-                                    \bf{clear()} & \\
-                                    Inputs & None \\
+                                    \bf{setUpBoard(input : string)} & \\
+                                    Inputs  & input \\
                                     Outputs & pieceArray[] \\
+                                    Updates & None \\
+                                    Desc    & Parses input to be interpreted as Piece locations. Place Piece on correct Piece location using the PlacePiece() access program.\\
+                                     & \\
+                                    \bf{getPiece(col : int, row : int)} : Piece & \\
+                                    Inputs  & col, row \\
+                                    Outputs & piece \\
                                     Updates & None \\ 
                                      & \\
                                     \bf{placePiece(col : int, row : int, piece : Piece)} & \\
-                                    Inputs &  col, row, piece \\
+                                    Inputs  &  col, row, piece \\
                                     Outputs & pieceArray[] \\
                                     Updates & None \\ 
+                                    Desc    & If piece placement is valid, it will put it there in the data structure. \\
                                      & \\
                                     \bf{movePiece(fromCol : int, fromRow : int, toCol : int, toRow : int)} & \\
-                                    Inputs & None \\
+                                    Inputs  & None \\
                                     Outputs & None \\
                                     Updates & None \\
                                      & \\
-                                    \bf{getPiece(col : int, row : int)} : Piece & \\
-                                    Inputs & col, row \\
-                                    Outputs & piece \\
+                                    \bf{clear()} & \\
+                                    Inputs  & None \\
+                                    Outputs & pieceArray[] \\
                                     Updates & None \\                                     
                               \end{tabular} \\
                               
