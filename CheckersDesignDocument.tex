@@ -57,7 +57,6 @@
     This document contains the decomposition, uses relationship, and traceability.
     
 \section{Module Guide}
-Modules are stuff.
 
 \subsection{Hardware Hiding Module}
 \iffalse
@@ -106,6 +105,7 @@ Modules are stuff.
             Responsibilites & This will hold the necessary components to describe what a game piece will contain, which will be seperate from the game board. \\
             Uses            & None \\
             Design          & \ref{mis:Piece} \\
+            Code File       & Piece.cs \\
             Explanation     & The piece is a part of behaviour hiding since the piece module holds specific piece information and outputs values needed by other modules. \\
         \end{tabularx}
 
@@ -118,6 +118,7 @@ Modules are stuff.
             Responsibilites & This module is responsible for holding the necessary components and attributes to setup the board and describe piece locations. \\
             Uses            & \ref{mod:Piece} \\
             Design          & \ref{mis:Board} \\
+            Code File       & Board.cs \\
             Explanation     & The board is a part of software decision hiding since the board implements a data structure that holds the placement of the pieces, this data structure might be changed for increased performance. Another software decision is deciding how to take user input to parse the placement of pieces. \\
         \end{tabularx}
 
@@ -140,8 +141,7 @@ Modules are stuff.
 \section{Module Design (MIS and MID)}
 
 
-        
-        
+       
     \subsection{Piece Module}\CustomLabel{mis:Piece}
     \subsubsection{Interface}
         \begin{tabularx}{\linewidth}{@{} >{\bfseries}r Xp{5cm} }
@@ -158,9 +158,9 @@ Modules are stuff.
 
             Access Programs & \begin{tabular}[t]{@{} l p{8cm}}
                                      & \\
-                                    getType() & Retrieves the piece's current type. \\
+                                    getType() : typeState & Retrieves the piece's current type. \\
                                     setType(newType : typeState) & Changes the piece's type. \\ 
-                                    getOwner() & Says who owns the piece. \\
+                                    getOwner() : player & Says who owns the piece. \\
                               \end{tabular}
         \end{tabularx}
         
@@ -340,6 +340,7 @@ Modules are stuff.
         \begin{tabularx}{\linewidth}{@{} >{\bfseries}r Xp{5cm} }
             Types           & \begin{tabular}[t]{@{} l p{8cm}} 
                                      & \\
+                                    Mouse & enumeration of mouse button states \\
                                     Keys & enumerates keyboard buttons \\
                               \end{tabular} \\
                               
@@ -350,8 +351,8 @@ Modules are stuff.
 
             Access Programs & \begin{tabular}[t]{@{} l p{8cm}}
                                      & \\
-                                    GetState() & Gets if mouse button is pressed. \\
-                                    IsKeyDown(key : Keys) & Checks if the key is pressed. \\
+                                    GetState() : Mouse & Gets if mouse button is pressed. \\
+                                    IsKeyDown(key : Keys) : bool & Checks if the key is pressed. \\
                               \end{tabular}
         \end{tabularx}
         
@@ -359,7 +360,7 @@ Modules are stuff.
         \begin{tabularx}{\linewidth}{ >{\bfseries}r Xp{5cm} }
             Variables       & \begin{tabular}[t]{@{} l p{8cm}} 
                                      & \\
-                                    mouseState & Holds if mouse is pressed. \\
+                                    mouseState : Mouse & Holds if mouse is pressed. \\
                                     mouseClickedPiece & Holds the graphical object the mouse is clicking on. \\
                                     mousePos & Stores current mouse position. \\
                               \end{tabular} \\
