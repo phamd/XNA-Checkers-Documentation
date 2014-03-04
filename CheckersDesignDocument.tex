@@ -213,7 +213,7 @@ Modules are stuff.
                                      & \\
                                     setUpBoard() & Sets up board based on user input. \\
                                      & \\
-                                    getPiece(col : int, row : int)& This method is used to determine if a piece exists on a square of the board. If the piece does exist, we pass it along to the caller. \\ 
+                                    getPiece(col : int, row : int) : Piece & This method is used to determine if a piece exists on a square of the board. If the piece does exist, we pass it along to the caller. \\ 
                                      & \\
                                     placePiece(col : int, row : int, piece : Piece) & Places the piece on the board while checking if the placement is legal (in terms of checkers). \\
                                      & \\
@@ -238,16 +238,18 @@ Modules are stuff.
                               
             Variables       & \begin{tabular}[t]{@{} l p{8cm}} 
                                      & \\
-                                    pieceArray[] & The board will be implemented as an array. \\
+                                    pieceArray : array & Contains all the Piece objects currently on the board in an array. \\
+                                    numWhitePieces : int & Holds the number of white pieces on the board as an integer. \\
+                                    numBlackPieces : int & Holds the number of black pieces on the board as an integer. \\
                               \end{tabular} \\
 
             Access Programs & \begin{tabular}[t]{@{} p{4cm} p{7cm}} 
                                      & \\
                                     \bf{setUpBoard(input : string)} & \\
                                     Inputs & input \\
-                                    Outputs & pieceArray[] \\
+                                    Outputs & pieceArray, numWhitePieces, numBlackPieces \\
                                     Updates & None \\
-                                    Description & Parses input to be interpreted as Piece locations. Place Piece on correct Piece location using the PlacePiece() access program.\\
+                                    Description & Parses input to be interpreted as Piece locations. Place Piece on correct Piece location using the PlacePiece() access program. numWhitePieces' = numWhitePieces + c and numBlackPieces' = numBlackPieces + d where c and d are between 0 and 12. pieceArray' = pieceArray with c + d more PieceObjects.\\
                                      & \\
                                     \bf{getPiece(col : int, row : int)} : Piece & \\
                                     Inputs & col, row \\
@@ -256,9 +258,9 @@ Modules are stuff.
                                      & \\
                                     \bf{placePiece(col : int, row : int, piece : Piece)} & \\
                                     Inputs &  col, row, piece \\
-                                    Outputs & pieceArray[] \\
-                                    Updates & None \\ 
-                                    Description & If piece placement is valid, it will put it there in the data structure. \\
+                                    Outputs & None \\
+                                    Updates & pieceArray, numWhitePieces, numBlackPieces \\ 
+                                    Description & If piece placement is valid, it will put it there in the data structure. Either numWhitePieces' = numWhitePieces + 1 or numBlackPieces' = numWhitePieces + 1. pieceArray' = pieceArray with one more Piece object.\\
                                      & \\
                                     \bf{movePiece(fromCol : int, fromRow : int, toCol : int, toRow : int)} & \\
                                     Inputs  & None \\
@@ -267,8 +269,9 @@ Modules are stuff.
                                      & \\
                                     \bf{clear()} & \\
                                     Inputs  & None \\
-                                    Outputs & pieceArray[] \\
-                                    Updates & None \\                                     
+                                    Outputs & pieceArray, numWhitePieces, numBlackPieces \\
+                                    Updates & None \\
+                                    Description & pieceArray' = Array of null objects, numWhitePieces' = 0 or numBlackPieces' = 0. \\
                               \end{tabular} \\
                               
         \end{tabularx}
