@@ -64,9 +64,9 @@ Implementation
 --------------
 #### Class Variables
 
-+ **pieceArray** : Private : Array :: 
-+ **numWhitePieces** : Private : int :: 
-+ **numBlackPieces** : Private : int :: 
++ **pieceArray** : Private : Array :: Contains all the Piece objects currently on the board in an array.
++ **numWhitePieces** : Private : int :: Holds the number of white pieces on the board as an integer.
++ **numBlackPieces** : Private : int :: Holds the number of black pieces on the board as an integer.
 
 #### Class Functions
 
