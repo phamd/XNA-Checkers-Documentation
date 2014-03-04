@@ -54,30 +54,27 @@ Secret: This module encapsulates the Piece module.
 Responsibilities: The board module tracks where all the pieces are located. It contains methods to check where pieces are and to add pieces to the board. 
 The Board Class will hold an array of Piece objects. It contains methods to check where pieces are and to add pieces to the board. 
 
-+ **setUpBoard(string)** sets up board based on input
-+ **getPiece(int, int)** checks to see if a particular square is occupied, along with its current rank and player assigned
-+ **getOccupied()**
-+ **getOccupiedBy()**
-+ **setLocation(int, int)** allows the insertion of a piece into the matrix representation
-+ **clear()** clear the entire board of all pieces
++ **setUpBoard(input : string)** sets up board based on input
++ **getPiece(colmn : int, row: int)** checks to see if a particular square is occupied, if there is it is returned
++ **placePiece(colimn : int, row: int)** allows the insertion of a piece onto the board
++ **movePiece(fromCol : int, fromRow : int, toCol : int, toRow : int)** changes a pieces location on the board
++ **clear()** removes all pieces from the board
 
 Implementation
 --------------
 #### Class Variables
 
 + **pieceArray** : Private : Array :: 
++ **numWhitePieces** : Private : int :: 
++ **numBlackPieces** : Private : int :: 
 
 #### Class Functions
 
-+ should not be here **Board()**           Public : Constructor :: Creates the "default" set up of the board. It uses one for loop to move through the columns and one to move through the rows. 
-                               *           It uses if statements to determine which type of piece to place there. The Piece objects are placed into the pieceArray in their correct positions.
-+ **setUpBoard(string)**     Public : Constructor :: Takes a String as input that will be interpreted at the Piece locations. It uses a for loop to go throught every Piece and case statements to determine what place and type were entered. 
-                                     *     The function will check if there are too many pieces or it was an invalid input as described in requirements. Otherwise the current piece is placed in the correct position in the array.
-+ **getOccupied(int, int)**         Public : Bool :: Returns whether or not a certiain position in the array has a Piece object of is Null.
-+ **getOccupiedBy(int, int)**       Public : typeStateUses :: an if statement to determine if a position in the array is occupied by a Piece, if so it returns the Type of that Piece.
-+ **getPiece(int, int)**            Public : PieceReturns :: what Piece is at a specific position int the Array.
-+ **setLocation(int, int, Piece)**  Public : Void :: Allows the insertion of a piece into the Array of Piece objects.
-+ **clear()**           Public : Void :: Uses two for loops to clear the Array of all Pieces previosly placed.
++ **setUpBoard(input : string)**     Public : Constructor :: Input string will be read as locations on a physical board and Piece object put in pieceArray accordinngly. numWhitePieces' = numWhitePieces + c and numBlackPieces' = numBlackPieces + d where c and d are between 0 and 12. pieceArray' = pieceArray with c + d more PieceObjects.
++ **getPiece(column : int, row : int)**            Public : PieceReturns :: Returns the Piece object held in the Piece array at the specified location. pieceArray' = PieceArray, numWhitePieces' = numWhitePieces, numBlackPieces' = numBlackPieces.
++ **placePiece(column : int, row : int)** Public : Void :: A new Piece object is placed into pieceArray. Either numWhitePieces' = numWhitePieces + 1 or numBlackPieces' = numWhitePieces + 1. pieceArray' = pieceArray with one more Piece object.
++ **movePiece(fromCol : int, fromRow : int, toCol : int, toRow : int)** Public : Void :: a Piece object is moved to a different location in pieceArray. The size of pieceArray' = size of pieceArray , numWhitePieces' = numWhitePieces, numBlackPieces' = numBlackPieces.
++ **clear()**           Public : Void :: removes all Piece objects from pieceArray. pieceArray' = Array of null objects, numWhitePieces' = 0 or numBlackPieces' = 0.
 
 
 Pieces
