@@ -18,6 +18,8 @@
 \usetikzlibrary{trees} % this is to allow the fork right path
 \usetikzlibrary{calc} % for hyperlinking nodes
 
+\usetikzlibrary{positioning}
+
 % Styling for Graphs
 \tikzset{
     basic/.style  = {thin, draw, text width=5em, font=\sffamily, rectangle, minimum size=2em, align=center},
@@ -182,8 +184,8 @@
                                      & \\
                                     \bf{setType(newType : typeState)} & \\
                                     Inputs & newType \\
-                                    Updates & pieceType \\ 
-                                    Outputs & None \\
+                                    Updates & None \\ 
+                                    Outputs & pieceType \\
                                     Description & WHAT DO? \\
                                      & \\
                                     \bf{getOwner()} : player & \\
@@ -228,55 +230,59 @@
         \end{tabularx}
         
     \subsubsection{Implementation}
-        \begin{tabularx}{\linewidth}{ >{\bfseries}r Xp{5cm} }
+        \begin{tabularx}{\linewidth}{ >{\bfseries}r Xp{2cm} }
             Types           & \begin{tabular}[t]{@{} l p{8cm}} 
                                  & \\
                                 None & \\
-                            \end{tabular} \\
-                            
+                                \end{tabular} \\
             Constants       & \begin{tabular}[t]{@{} l p{8cm}} 
                                  & \\
                                 None & \\
                             \end{tabular} \\
-                              
             Variables       & \begin{tabular}[t]{@{} l p{8cm}} 
                                      & \\
                                     pieceArray : array & Contains all the Piece objects currently on the board in an array. \\
                                     numWhitePieces : int & Holds the number of white pieces on the board as an integer. \\
                                     numBlackPieces : int & Holds the number of black pieces on the board as an integer. \\
                               \end{tabular} \\
-
-            Access Programs & \begin{tabular}[t]{@{} p{4cm} p{7cm}} 
-                                     & \\
-                                    \bf{setUpBoard(input : string)} & \\
+            Access Programs & \\
+                            & \bf{setUpBoard(input : string)} \\
+                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}} 
                                     Inputs & input \\
                                     Outputs & pieceArray, numWhitePieces, numBlackPieces \\
                                     Updates & None \\
                                     Description & Parses input to be interpreted as Piece locations. Place Piece on correct Piece location using the PlacePiece() access program. numWhitePieces' = numWhitePieces + c and numBlackPieces' = numBlackPieces + d where c and d are between 0 and 12. pieceArray' = pieceArray with c + d more PieceObjects.\\
                                      & \\
-                                    \bf{getPiece(col : int, row : int)} : Piece & \\
+                                     \end{tabular} \\
+                            & \bf{getPiece(col : int, row : int)} : Piece \\
+                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}} 
                                     Inputs & col, row \\
                                     Outputs & piece \\
                                     Updates & None \\ 
                                      & \\
-                                    \bf{placePiece(col : int, row : int, piece : Piece)} & \\
+                                     \end{tabular} \\
+                            & \bf{placePiece(col : int, row : int, piece : Piece)} \\
+                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}}
                                     Inputs &  col, row, piece \\
                                     Outputs & None \\
                                     Updates & pieceArray, numWhitePieces, numBlackPieces \\ 
                                     Description & If piece placement is valid, it will put it there in the data structure. Either numWhitePieces' = numWhitePieces + 1 or numBlackPieces' = numWhitePieces + 1. pieceArray' = pieceArray with one more Piece object.\\
                                      & \\
-                                    \bf{movePiece(fromCol : int, fromRow : int, toCol : int, toRow : int)} & \\
+                                     \end{tabular} \\
+                            & \bf{movePiece(fromCol : int, fromRow : int, toCol : int, toRow : int)} \\
+                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}}
                                     Inputs  & None \\
                                     Outputs & None \\
                                     Updates & None \\
                                      & \\
-                                    \bf{clear()} & \\
+                                     \end{tabular} \\
+                            & \bf{clear()} & \\
+                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}}
                                     Inputs  & None \\
                                     Outputs & pieceArray, numWhitePieces, numBlackPieces \\
                                     Updates & None \\
                                     Description & pieceArray' = Array of null objects, numWhitePieces' = 0 or numBlackPieces' = 0. \\
-                              \end{tabular} \\
-                              
+                                     \end{tabular} \\
         \end{tabularx}
         
 
@@ -317,22 +323,25 @@
                                     
                               \end{tabular} \\
 
-            Access Programs & \begin{tabular}[t]{@{} l l p{8cm}} 
+            Access Programs & \begin{tabular}[t]{@{} l p{8cm}} 
                                      & \\
                                     \bf{Update()} & \\
                                     Inputs &  None \\
                                     Updates & currentState \\
                                     Outputs & None \\
+                                    Description & Changes the state based on keyboard press or mouse presses on graphical buttons.\\
                                      & \\
                                     \bf{Draw()} & \\
                                     Inputs & board \\
                                     Updates & pieceList \\
                                     Outputs & None \\
+                                    Description & Draws the buttons, board tiles and pieces in proper place on the screen. The piece locations are stored in pieceList. And we just loop through the graphics objects to draw them each frame. \\
                                      & \\
                                     \bf{takeInput()} & \\
                                     Inputs & input \\
                                     Updates & None \\
                                     Outputs & board \\ 
+                                    Description & Takes user input and sends it to the board using board.SetUpBoard().\\
                               \end{tabular} \\
                               
         \end{tabularx}
@@ -368,7 +377,7 @@
                                     mousePos & Stores current mouse position. \\
                               \end{tabular} \\
 
-            Access Programs & \begin{tabular}[t]{@{} l l p{8cm}} 
+            Access Programs & \begin{tabular}[t]{@{} l p{8cm}} 
                                      & \\
                                     \bf{GetState()} & \\
                                     Inputs &  None \\
@@ -383,6 +392,43 @@
                               
         \end{tabularx}
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+\section{Uses Relationship} 
+\tikzset{main node/.style={circle,fill=blue!20,draw,minimum size=1cm,inner sep=0pt},
+            }
+  \begin{tikzpicture}
+    \node[main node] (1) {$1$};
+    \node[main node] (2) [below left = 2.3cm and 1.5cm of 1]  {$2$};
+    \node[main node] (3) [below right = 2.3cm and 1.5cm of 1] {$3$};
+
+    \path[draw,thick]
+    (1) edge node {} (2)
+    (2) edge node {} (3)
+    (3) edge node {} (1);
+    %%
+    \begin{scope}[xshift=4cm]
+    \node[main node] (1) {$1$};
+    \node[main node] (2) [right = 2cm  of 1]  {$2$};
+    \node[main node] (3) [below = 2cm  of 1] {$3$};
+    \node[main node] (4) [right = 2cm  of 3] {$4$};
+
+    \path[draw,thick]
+    (1) edge node {} (2)
+    (1) edge node {} (4)
+    (3) edge node {} (2)
+    (3) edge node {} (4)
+    ;
+    \end{scope}
+\end{tikzpicture}
+
 \end{document}
 
 
