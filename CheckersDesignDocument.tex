@@ -47,7 +47,7 @@
 }
 
 \title{\bf Checkers Design Document}
-\author{me 3}
+\author{2me3}
 \date{}
 
 \begin{document} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -136,6 +136,41 @@
             Explanation     & The module is a part of software decision hiding since it determines how we draw the graphics and what to do when we switch between states of the game. \\
         \end{tabularx}
         
+        
+        
+        \section{Uses Relationship} 
+\tikzset{main node/.style={rectangle,fill=blue!5,draw,minimum size=1cm,inner sep=0pt},
+}
+  \begin{tikzpicture}
+    \node[main node, hyperlink node = mod:Game1] (1) {Game1};
+    \node[main node, hyperlink node = mod:Board] (2) [below left = 2.3cm and 1.5cm of 1]  {Board};
+    \node[main node, hyperlink node = mod:Piece] (3) [below left = 2.3cm and 1cm of 2] {Piece};
+    \node[main node, hyperlink node = mod:Input] (4) [below right = 2.3cm and 1.5cm of 1] {Input};
+
+    \path[draw,thick,->]
+    (1) edge node {} (2)    % game1 to board
+    (2) edge node {} (3)    % board to piece
+    (1) edge node {} (4);   % game1 to input
+    %%
+    
+    \iffalse % this is just here in case we add more modules that aren't connected to anything
+    \begin{scope}[xshift=4cm]
+    \node[main node] (1) {$1$};
+    \node[main node] (2) [right = 2cm  of 1]  {$2$};
+    \node[main node] (3) [below = 2cm  of 1] {$3$};
+    \node[main node] (4) [right = 2cm  of 3] {$4$};
+
+    \path[draw,thick]
+    (1) edge node {} (2)
+    (1) edge node {} (4)
+    (3) edge node {} (2)
+    (3) edge node {} (4)
+    ;
+    \end{scope}
+    \fi
+\end{tikzpicture}
+
+
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -401,38 +436,6 @@
         
         
         
-        
-\section{Uses Relationship} 
-\tikzset{main node/.style={rectangle,fill=blue!5,draw,minimum size=1cm,inner sep=0pt},
-}
-  \begin{tikzpicture}
-    \node[main node, hyperlink node = mod:Game1] (1) {Game1};
-    \node[main node, hyperlink node = mod:Board] (2) [below left = 2.3cm and 1.5cm of 1]  {Board};
-    \node[main node, hyperlink node = mod:Piece] (3) [below left = 2.3cm and 1cm of 2] {Piece};
-    \node[main node, hyperlink node = mod:Input] (4) [below right = 2.3cm and 1.5cm of 1] {Input};
-
-    \path[draw,thick,->]
-    (1) edge node {} (2)    % game1 to board
-    (2) edge node {} (3)    % board to piece
-    (1) edge node {} (4);   % game1 to input
-    %%
-    
-    \iffalse % this is just here in case we add more modules that aren't connected to anything
-    \begin{scope}[xshift=4cm]
-    \node[main node] (1) {$1$};
-    \node[main node] (2) [right = 2cm  of 1]  {$2$};
-    \node[main node] (3) [below = 2cm  of 1] {$3$};
-    \node[main node] (4) [right = 2cm  of 3] {$4$};
-
-    \path[draw,thick]
-    (1) edge node {} (2)
-    (1) edge node {} (4)
-    (3) edge node {} (2)
-    (3) edge node {} (4)
-    ;
-    \end{scope}
-    \fi
-\end{tikzpicture}
 
 \end{document}
 
