@@ -216,19 +216,19 @@
                                     Inputs &  None \\
                                     Updates & None \\
                                     Outputs & pieceType \\
-                                    Description & WHAT DO? \\
+                                    Description & Returns the current type of the piece. \\
                                      & \\
                                     \bf{setType(newType : typeState)} & \\
                                     Inputs & newType \\
                                     Updates & None \\ 
                                     Outputs & pieceType \\
-                                    Description & WHAT DO? \\
+                                    Description & Changes the type of piece to the type given.\\
                                      & \\
                                     \bf{getOwner()} : player & \\
                                     Inputs & None \\
                                     Updates & None \\
                                     Outputs & owner \\ 
-                                    Description & WHAT DO? \\
+                                    Description & Returns which player the piece is owned by.\\
                               \end{tabular} \\
                               
         \end{tabularx}
@@ -295,6 +295,7 @@
                                     Inputs & col, row \\
                                     Outputs & piece \\
                                     Updates & None \\ 
+			    Description & Returns the piece currently at the location specified. \\
                                      & \\
                                      \end{tabular} \\
                             & \bf{placePiece(col : int, row : int, piece : Piece)} \\
@@ -310,6 +311,7 @@
                                     Inputs  & None \\
                                     Outputs & None \\
                                     Updates & None \\
+                                    Description & Moves piece at said location to the location specified. \\
                                      & \\
                                      \end{tabular} \\
                             & \bf{clear()} & \\
@@ -317,7 +319,7 @@
                                     Inputs  & None \\
                                     Outputs & pieceArray, numWhitePieces, numBlackPieces \\
                                     Updates & None \\
-                                    Description & pieceArray' = Array of null objects, numWhitePieces' = 0 or numBlackPieces' = 0. \\
+                                    Description & Clears the board of all pieces. pieceArray' = Array of null objects, numWhitePieces' = 0 or numBlackPieces' = 0. \\
                                      \end{tabular} \\
         \end{tabularx}
         
@@ -356,7 +358,6 @@
                                     input : string & holds board setup from user \\ 
                                     board : Board & \\
                                     pieceList : List &  Holds information of where to graphically place each piece. \\
-                                    
                               \end{tabular} \\
 
             Access Programs & \begin{tabular}[t]{@{} l p{8cm}} 
