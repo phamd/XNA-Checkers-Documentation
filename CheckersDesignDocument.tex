@@ -91,8 +91,8 @@
     \subsubsection{Input Module}\CustomLabel{mod:Input}
     \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
         Type            & Hardware Module \\
-        Secret          & This module translate mouse clicks and keyboard presses to be used by the rest of the software. \\
-        Responsibilites & This module will take mouse and keyboard input and convert it to software usable states. \\
+        Secret          & This module translates mouse clicks and keyboard presses to be used by the rest of the software. \\
+        Responsibilities & This module will take mouse and keyboard input and convert it to software usable states. \\
         Uses            & None \\
         Design          & \ref{mis:Input} \\
         Code File       & Inside Game1.cs, and built into C\#. \\
@@ -105,7 +105,7 @@
         \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
             Type            & Software Module \\
             Secret          & This module hides and separates specific piece information. \\
-            Responsibilites & This will hold the necessary components to describe what a game piece will contain, which will be seperate from the game board. \\
+            Responsibilities & This will hold the necessary components to describe what a game piece will contain, which will be separate from the game board. \\
             Uses            & None \\
             Design          & \ref{mis:Piece} \\
             Code File       & Piece.cs \\
@@ -118,7 +118,7 @@
         \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
             Type            & Software Module \\
             Secret          & This module serves to hide the secret of how the board is defined internally. \\
-            Responsibilites & This module is responsible for holding the necessary components and attributes to setup the board and describe piece locations. \\
+            Responsibilities & This module is responsible for holding the necessary components and attributes to setup the board and describe piece locations. \\
             Uses            & \ref{mod:Piece} \\
             Design          & \ref{mis:Board} \\
             Code File       & Board.cs \\
@@ -129,7 +129,7 @@
         \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
             Type            & Software Module \\
             Secret          & This module hides how the graphics are displayed and how we switch between states of the game. \\
-            Responsibilites & This module will be the responsible for the initial execution of the game, this class connects and launches critical components together. \\
+            Responsibilities & This module will be the responsible for the initial execution of the game, this class connects and launches critical components together. \\
             Uses            & \ref{mod:Board}, \ref{mod:Piece}, \ref{mod:Input} \\
             Design          & \ref{mis:Game1} \\
             Code File       & Game1.cs \\
