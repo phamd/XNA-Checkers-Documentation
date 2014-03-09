@@ -40,3 +40,24 @@ Changelog
 + Create module list.File io module.
 	-List of things we need to change in old module
 + New method in board that checks if an opposing piece has reached the top of the board and then changes that piece into a king.
+
+
+WHAT TO HIDE (likely to change)
+- how we are saving/loading the state of the game
+- what type of file we're saving to (encrypted or not)
+- number of saved game slots
+- how pieces are moved
+- how we are checking for a valid movement
+(from last assignment)
+
+
+WHAT ARE WE ADDING
+- new Class for I/O
+- new functions for moving pieces and checking moves (in Board)
+    movePiece (will contain all the funcations below, cohesion)
+	checkValidMove
+	updateMove
+	isTurnOver
+	makeKing
+- new buttons to save game 
+- new button to load game
