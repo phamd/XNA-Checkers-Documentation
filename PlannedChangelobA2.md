@@ -28,36 +28,40 @@ yourselves) what has changed in your design. A revision history is a good idea.
 
 
 Changelog
-+ Saving the file/state, should be hidden, becasue we don't know how it would change
-    -the game savefile format can change and wheather if it is encrypted or not.
-	-saving document should contain which player turn it is on
-+ Number of save slots you have because it doesn't have to be just one
-+ Adding to the previous documentation
-	-such as legal moves
-+ Encapsulation of how pieces are to be moved
-+ Valid moves are checked and are hidden from users
-	-hide who's turn it is 
-+ Create module list.File io module.
-	-List of things we need to change in old module
-+ New method in board that checks if an opposing piece has reached the top of the board and then changes that piece into a king.
++   Saving the file/state, should be hidden, becasue we don't know how it would change
+    -   the game savefile format can change and wheather if it is encrypted or not.
+	-   saving document should contain which player turn it is on
++   Number of save slots you have because it doesn't have to be just one
++   Adding to the previous documentation
+	-   such as legal moves
++   Encapsulation of how pieces are to be moved
++   Valid moves are checked and are hidden from users
+	-   hide who's turn it is 
++   Create module list.File io module.
+	-   List of things we need to change in old module
++   New method in board that checks if an opposing piece has reached the top of the board and then changes that piece into a king.
 
 
 WHAT TO HIDE (likely to change)
-- how we are saving/loading the state of the game
-- what type of file we're saving to (encrypted or not)
-- number of saved game slots
-- how pieces are moved
-- how we are checking for a valid movement
+-   how we are saving/loading the state of the game
+-   what type of file we're saving to (encrypted or not)
+-   number of saved game slots
+-   how pieces are moved
+-   how we are checking for a valid movement
 (from last assignment)
 
 
 WHAT ARE WE ADDING
-- new Class for I/O
-- new functions for moving pieces and checking moves (in Board)
-    movePiece (will contain all the funcations below, cohesion)
-	checkValidMove
-	updateMove
-	isTurnOver
-	makeKing
-- new buttons to save game 
-- new button to load game
+-   new Class for I/O
+-   new functions for moving pieces and checking moves (in Board)
+    -   movePiece (will contain all the funcations below, cohesion)
+	-   checkValidMove
+	-   updateMove
+	-   isTurnOver
+	-   makeKing
+-   new buttons to save game 
+-   new button to load game
+
+Link to the Class uses Diagram for View Request for Change
+==========================================================
+[link to draw.io page]{https://drive.google.com/file/d/0B_OdWfEX6Q8WOW5yM0M3UWc4TEU/edit?usp=sharing}
