@@ -5,7 +5,7 @@ Roles
 
 Code : Ryan Mike Don
 Testing : Don
-Documentation : Erica Terry
+Documentation : Erica Terry MD
 
 1. Include choices that enable users to:  
     1. Start a game from original starting positions. 
