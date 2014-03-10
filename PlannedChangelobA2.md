@@ -27,7 +27,9 @@ yourselves) what has changed in your design. A revision history is a good idea.
     2. Include a test report document that records how you tested your application.
 
 
-Changelog
+#### Changelog
+
+
 +   Saving the file/state, should be hidden, becasue we don't know how it would change
     -   the game savefile format can change and wheather if it is encrypted or not.
 	-   saving document should contain which player turn it is on
@@ -42,7 +44,8 @@ Changelog
 +   New method in board that checks if an opposing piece has reached the top of the board and then changes that piece into a king.
 
 
-WHAT TO HIDE (likely to change)
+#### WHAT TO HIDE (likely to change)
+
 -   how we are saving/loading the state of the game
 -   what type of file we're saving to (encrypted or not)
 -   number of saved game slots
@@ -51,7 +54,8 @@ WHAT TO HIDE (likely to change)
 (from last assignment)
 
 
-WHAT ARE WE ADDING
+#### WHAT ARE WE ADDING
+
 -   new Class for I/O
 -   new functions for moving pieces and checking moves (in Board)
     -   movePiece (will contain all the funcations below, cohesion)
