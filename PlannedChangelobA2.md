@@ -62,9 +62,9 @@ yourselves) what has changed in your design. A revision history is a good idea.
 -   new functions for moving pieces and checking moves (in Board)
     -   movePiece (will contain all the funcations below, cohesion)
 	-   checkValidMove
-	-   updateMove
+	-   updateBoard
 	-   isTurnOver
-	-   makeKing
+	-   makeKing (used by updateBoard)
 -   removePiece in Board
 -   new buttons to save game 
 -   new button to load game
