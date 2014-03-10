@@ -74,4 +74,4 @@ yourselves) what has changed in your design. A revision history is a good idea.
 
 Link to the Class uses Diagram for View Request for Change
 ==========================================================
-[link to draw.io page]{https://drive.google.com/file/d/0B_OdWfEX6Q8WOW5yM0M3UWc4TEU/edit?usp=sharing}
+[link to draw.io page] {https://drive.google.com/file/d/0B_OdWfEX6Q8WOW5yM0M3UWc4TEU/edit?usp=sharing}
