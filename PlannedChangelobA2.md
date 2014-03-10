@@ -57,6 +57,8 @@ yourselves) what has changed in your design. A revision history is a good idea.
 #### WHAT ARE WE ADDING
 
 -   new Class for file I/O (game 1 uses)
+    -   save 
+    -   load
 -   new functions for moving pieces and checking moves (in Board)
     -   movePiece (will contain all the funcations below, cohesion)
 	-   checkValidMove
@@ -66,6 +68,9 @@ yourselves) what has changed in your design. A revision history is a good idea.
 -   removePiece in Board
 -   new buttons to save game 
 -   new button to load game
+-   new substates in playing 
+    -   player 1
+    -   player 2
 
 Link to the Class uses Diagram for View Request for Change
 ==========================================================
