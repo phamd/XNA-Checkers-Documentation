@@ -1,0 +1,51 @@
+BOARD
+- if statements modified to switch colours of pieces
+- new getPiece that takes a vector arguement so that mouse clicks can be used
+- getPiece modified to throw an exception if the piece is not found
+- getPieceArray added to return the entire array of pieces
+- movePiece function added 
+
+CLASS1
+- new module added WHY
+
+FILEIO
+- new class added
+- allows for saving and loading of games 
+- has a save and load function
+
+GAME1
+- new enumerated variable added: PLAYER_TURN
+- new variables added: currentPlayerTurn, fileIO 
+- new Texture2D variables: Menu_ButtonLoad, Playing_ButtonSave
+- new View_Clickable: Playing_ButtonSave, clickable_SaveButton
+- board_SquareSize has been changed into a constant
+- new Vector2 variable: mouseBoardPosition
+- graphics changed to include new load button 
+- switching of players turn added
+- new restrictions on dragging ability so that pieces only moved correctly
+- added more detailed clicking ability to restrict the movement of pieces on the correct turn
+- actions upon clicking updated to allow for full playing
+- takeInput function added that sets up the board if there is a file to open
+- added setValidMovements functions to give every piece on the board the squares they can move to
+
+BOARD INTERFACE
+- added function:    getPiece
+					getPieceArray
+					movePiece
+
+FILE IO INTERFACE
+- interface added with save and load
+
+PIECE INTERFACE
+- getValidMovents and setValidMovements added
+
+PIECE
+- added a validMovements struct that holds all of the information about a pieces valid movement
+- added an enumerated variable containing the valid movement directions
+- added a getValidMovement function that returns the array of valid movements
+- added a setValidMovements function that gives a piece the squares it is able to move to
+
+VIEW CLICKABLE
+- new boardCoords variable added
+- new constructor added to save the information of a piece if it has said information
+- added a getCoords function that returns the coordinates of the board
