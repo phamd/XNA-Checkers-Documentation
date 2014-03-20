@@ -49,3 +49,60 @@ VIEW CLICKABLE
 - new boardCoords variable added
 - new constructor added to save the information of a piece if it has said information
 - added a getCoords function that returns the coordinates of the board
+
+
+MIS
+Types
+validMovementsStruct structure that holds the valid movements
+typeState enumerate if the piece is normal or king
+player enumerate if piece owned by Black or White
+
+Constants
+none
+
+AccessPrograms
+getType() : typeState Retrieves the piece's current type.
+getOwner() : player Says who owns the piece.
+getValidMovements() Retrieves the movements that a piece can make.
+setType(newType : typeState) Changes the piece's type.
+setValidMovements (direction : validMoveDirection, col : int, row : int) Assigns the valid movements for a piece.
+
+
+MID
+VARIABLES
+pieceType : typeState holds current piece type
+owner : player holds information of the piece's owner
+validMovementsArray : an array holding all the valid movements for a piece.
+
+ACCESS PROGRAMS
+getType() : typeState
+Inputs None
+Updates None
+Outputs pieceType
+Description Returns the current type of the piece.
+
+setType(newType : typeState)
+Inputs newType
+Updates None
+Outputs pieceType
+Description Changes the type of piece to the type given.
+
+getOwner() : player
+Inputs None
+Updates None
+Outputs owner
+Description Returns which player the piece is owned by.
+ 
+getValidMovements() : validMovementsStruct[]
+Inputs None
+Updates None
+Output validMovementsArray
+Description Returns an array of the valid movements for a particular piece.
+
+setValidMovements(direction : validMoveDirection, col : int, row : int)
+Inputs direction, col, row
+Updates None
+Outputs validMovementsArray
+Description Sets the places that are valid for a specific piece to move.
+
+
