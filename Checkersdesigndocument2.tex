@@ -161,8 +161,48 @@
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Changelog from Assignment 1 to Curret}
 
-
+	\subsection{Board}
+	\begin{itemize}
+	\item if statements modified to switch colours of pieces
+	\item new getPiece that takes a vector argument so that mouse clicks can be used
+	\item getPiece modified to throw an exception if the piece is not found
+	\item getPieceArray added to return the entire array of pieces
+	\item movePiece function added 	
+	\end{itemize}
+	
+	\subsection{Piece}
+	\begin{itemize}
+	\item added a validMovements struct that holds all of the information about a pieces valid movement
+	\item added an enumerated variable containing the valid movement directions
+	\item added a getValidMovement function that returns the array of valid movements
+	\item added a setValidMovements function that gives a piece the squares it is able to move to	
+	\end{itemize}
+	
+	\subsection{Game1}	
+	\begin{itemize}
+	\item new enumerated variable added: PLAYER\_TURN
+	\item new variables added: currentPlayerTurn, fileIO 
+	\item new Texture2D variables: Menu\_ButtonLoad, Playing\_ButtonSave
+	\item new View\_Clickable: Playing\_ButtonSave, clickable\_SaveButton
+	\item board\_SquareSize has been changed into a constant
+	\item new Vector2 variable: mouseBoardPosition
+	\item graphics changed to include new load button 
+	\item switching of players turn added
+	\item new restrictions on dragging ability so that pieces only moved correctly
+	\item added more detailed clicking ability to restrict the movement of pieces on the correct turn
+	\item actions upon clicking updated to allow for full playing
+	\item takeInput function added that sets up the board if there is a file to open
+	\item added setValidMovements functions to give every piece on the board the squares they can move to	
+	\end{itemize}	
+	
+	\subparagraph{Added Module}
+	\begin{itemize}
+	\item added a new module FileIO to match requirement of being able to save and load games
+	\end{itemize}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Module Design (MIS and MID)}
 

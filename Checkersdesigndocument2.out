@@ -9,20 +9,24 @@
 \BOOKMARK [3][-]{subsubsection.2.3.2}{Board Module}{subsection.2.3}% 9
 \BOOKMARK [3][-]{subsubsection.2.3.3}{FileIO Module}{subsection.2.3}% 10
 \BOOKMARK [1][-]{section.3}{Uses Relationship}{}% 11
-\BOOKMARK [1][-]{section.4}{Module Design \(MIS and MID\)}{}% 12
-\BOOKMARK [2][-]{subsection.4.1}{Piece Module}{section.4}% 13
-\BOOKMARK [3][-]{subsubsection.4.1.1}{Interface}{subsection.4.1}% 14
-\BOOKMARK [3][-]{subsubsection.4.1.2}{Implementation}{subsection.4.1}% 15
-\BOOKMARK [2][-]{subsection.4.2}{Board Module}{section.4}% 16
-\BOOKMARK [3][-]{subsubsection.4.2.1}{Interface}{subsection.4.2}% 17
-\BOOKMARK [3][-]{subsubsection.4.2.2}{Implementation}{subsection.4.2}% 18
-\BOOKMARK [2][-]{subsection.4.3}{Game1 Module}{section.4}% 19
-\BOOKMARK [3][-]{subsubsection.4.3.1}{Interface}{subsection.4.3}% 20
-\BOOKMARK [3][-]{subsubsection.4.3.2}{Implementation}{subsection.4.3}% 21
-\BOOKMARK [2][-]{subsection.4.4}{FileIO Module}{section.4}% 22
-\BOOKMARK [3][-]{subsubsection.4.4.1}{Interface}{subsection.4.4}% 23
-\BOOKMARK [3][-]{subsubsection.4.4.2}{Implementation}{subsection.4.4}% 24
-\BOOKMARK [2][-]{subsection.4.5}{Input Module}{section.4}% 25
-\BOOKMARK [3][-]{subsubsection.4.5.1}{Interface}{subsection.4.5}% 26
-\BOOKMARK [3][-]{subsubsection.4.5.2}{Implementation}{subsection.4.5}% 27
-\BOOKMARK [1][-]{section.5}{Internal Evaluation}{}% 28
+\BOOKMARK [1][-]{section.4}{Changelog from Assignment 1 to Curret}{}% 12
+\BOOKMARK [2][-]{subsection.4.1}{Board}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.2}{Piece}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.3}{Game1}{section.4}% 15
+\BOOKMARK [1][-]{section.5}{Module Design \(MIS and MID\)}{}% 16
+\BOOKMARK [2][-]{subsection.5.1}{Piece Module}{section.5}% 17
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Interface}{subsection.5.1}% 18
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Implementation}{subsection.5.1}% 19
+\BOOKMARK [2][-]{subsection.5.2}{Board Module}{section.5}% 20
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Interface}{subsection.5.2}% 21
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Implementation}{subsection.5.2}% 22
+\BOOKMARK [2][-]{subsection.5.3}{Game1 Module}{section.5}% 23
+\BOOKMARK [3][-]{subsubsection.5.3.1}{Interface}{subsection.5.3}% 24
+\BOOKMARK [3][-]{subsubsection.5.3.2}{Implementation}{subsection.5.3}% 25
+\BOOKMARK [2][-]{subsection.5.4}{FileIO Module}{section.5}% 26
+\BOOKMARK [3][-]{subsubsection.5.4.1}{Interface}{subsection.5.4}% 27
+\BOOKMARK [3][-]{subsubsection.5.4.2}{Implementation}{subsection.5.4}% 28
+\BOOKMARK [2][-]{subsection.5.5}{Input Module}{section.5}% 29
+\BOOKMARK [3][-]{subsubsection.5.5.1}{Interface}{subsection.5.5}% 30
+\BOOKMARK [3][-]{subsubsection.5.5.2}{Implementation}{subsection.5.5}% 31
+\BOOKMARK [1][-]{section.6}{Internal Evaluation}{}% 32
