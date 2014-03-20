@@ -95,14 +95,21 @@
 
 	\item Assignment 2 Requirements	
 		\begin{enumerate}[label*=\arabic*.]
-		\item Load Saves and legal moves checking
+		\item Load Saves
 			\begin{enumerate}[label*=\arabic*.]
 				\item \CustomLabel{req:2.1.1}
 				Start Game from original starting positions
 				\item \CustomLabel{req:2.1.2}
 				Start a game from a previously stored state from a within a file
-				\item \CustomLabel{req:2.1.3}Make moves from one position to another, while making sure the move made is legal
-				\item \CustomLabel{req:2.1.4}Save a game to be resumed later
+				\item \CustomLabel{req:2.1.3}Save a game to be resumed later
+			\end{enumerate}
+		\item Legal Moves and Crowning
+			\begin{enumerate}[label*=\arabic*.]
+				\item \CustomLabel{req:2.2.1} Make moves from one position to another, while making sure the move made is legal.
+				\item \CustomLabel{req:2.2.2} Simply move a piece to another square; jump the opponent’s piece (so that piece is removed from the board).
+				\item \CustomLabel{req:2.2.3} Crowning a piece to king
+				\item \CustomLabel{req:2.2.4} move kings in both directions (forwards and backwards).
+				\item \CustomLabel{req:2.2.5} Graphically or through code indicate possible movements.
 			\end{enumerate}
 		\end{enumerate}
 	\end{enumerate}
@@ -129,7 +136,7 @@
         \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
             Type            & Software Module \\
             Secret          & This module hides and separates specific piece information. \\
-	        Requirements	& None \\
+	        Requirements	& \ref{req:1.3.1} \\
             Responsibilities & This will hold the necessary components to describe what a game piece will contain, which will be separate from the game board. \\
             Uses            & None \\
             Design          & \ref{mis:Piece} \\
