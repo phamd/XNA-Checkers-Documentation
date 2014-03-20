@@ -1,0 +1,115 @@
+\documentclass{article}
+\title{\bf Testing Document}
+\date{\vspace{-5ex}}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+This document will outline testing procedures for the Checkers game. When first starting the game, the user is shown a menu with two(2) options - both of which correspond to a method of board setup 
+\begin{enumerate}
+\item PLAY
+\item CUSTOM
+\end{enumerate}
+
+\section{PLAY}
+When the user clicks on PLAY, a standard 8x8 checkers board with all 24 pieces (12 white, 12 black) should be generated.
+To test this functionality click on the play button and verify the correct board has been generated.
+
+\section{CUSTOM}
+When the user clicks on CUSTOM, they will be prompted to enter positions for all of their pieces.
+
+\subsection{No Input}
+In the event that the user inputs nothing, the console will display an incorrect input message and prompt the user for a correct input
+
+\subsubsection*{Test Cases}
+\begin{itemize}
+\item Return Key
+\end{itemize}
+
+\subsection{Input Incorrectly Formatted}
+In the event that the user inputs the piece information incorrectly, the console will display an appropriate incorrect input message and prompt the user for a correct input. 
+
+\subsubsection*{Test Cases}
+\begin{itemize}
+\item c
+\item A1=e
+\item W=A1
+\item A1 = W
+\item A1 = KW
+\item 2=2
+\item =====
+\item !@**
+\item A(5-4)=W
+\item AA3=W
+\item A1=W, C1=B
+\item A1=W,\qquad C1=B
+\item G1=34,A7=B
+\end{itemize}
+
+\subsection{Invalid Location - Not on Solid Square}
+In the event that the user inputs a location that corresponds to a light square instead of a solid square, the console will display an appropriate incorrect input message and prompt the user for a correct input
+
+\subsubsection*{Test Cases}
+\begin{itemize}
+\item A2=W
+\item B1=B
+\item C4=W
+\item F5=W
+\item H3=B
+\end{itemize}
+
+\subsection{Invalid Location - Out Of Board Bounds}
+In the event that the user inputs a location that does not exist on the board, the console will display an incorrect input message and prompt the user for a correct input.
+
+\subsubsection*{Test Cases}
+\begin{itemize}
+\item A9=B
+\item B12=W
+\item I1=W
+\item J10=B
+\end{itemize}
+
+\subsection{Too Many White Pieces}
+In the event that the user inputs too many white pieces ($>$12), the console will display an appropriate input message (along with how many pieces you inputted) and prompt the user for a correct input.
+
+\subsubsection*{Test Cases}
+\begin{itemize}
+\item A1=W,C1=W,E1=W,G1=W,A3=W,A5=W,A7=W,B8=W,B6=W,B4=W,
+B2=W,E1=W,E3=W
+\item E5=B,A1=W,C1=W,E1=W,G1=W,A3=W,A5=W,A7=W,B8=W,B6=W,
+B4=W,B2=W,E1=W,E3=W
+\end{itemize}
+
+\subsection{Too Many Black Pieces}
+In the event that the user inputs too many black pieces ($>$12), the console will display an appropriate input message (along with how many pieces you inputted) and prompt the user for a correct input.
+
+\subsubsection*{Test Cases}
+\begin{itemize}
+\item A1=B,C1=B,E1=B,G1=B,A3=B,A5=B,A7=B,B8=B,B6=B,B4=B, \\
+B2=B,E1=B,E3=B
+\item A1=B,C1=B,E1=B,G1=B,A3=B,A5=B,A7=B,B8=B,B6=B,B4=B, \\
+B2=B,E1=B,E3=B,E5=W
+\end{itemize}
+
+\subsection{Overlapping Pieces}
+In the event that the user inputs a location that is already filled with a piece, the previous piece will be overwritten by the new piece
+\subsubsection*{Test Cases}
+\begin{itemize}
+\item A1=B,A1=W
+\item A1=W,A1=WK
+\item A1=W,A3=B,A1=B,A3=W
+\item A1=W,A1=W
+\end{itemize}
+
+\subsection{Accepted Board Configurations}
+In the event that the user inputs the correct format, the console will display a confirmation message and the custom game board will be generated 
+
+\subsubsection*{Test Cases}
+\begin{itemize}
+\item A1=W
+\item a1=w
+\item A3=W,B2=B
+\end{itemize}
+
+\end{document}
