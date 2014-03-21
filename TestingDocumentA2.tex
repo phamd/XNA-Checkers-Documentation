@@ -1,6 +1,24 @@
 \documentclass{article}
+\usepackage{color}
+\usepackage[ocgcolorlinks]{hyperref} %ocg coverts links to black when you print -- downside of unbreakable lines
+
+%%% Package: Listings
+\usepackage{listings} % for formatting code examples
+\lstset{breaklines=true % sets automatic line breaking
+        ,numbers=left % where to put the line-numbers; possible values are (none, left, right)
+        ,numbersep=5pt % how far the line-numbers are from the code
+        ,numberstyle=\tiny\color[rgb]{0.5,0.5,0.5} % the style that is used for the line-numbers
+        ,keepspaces=true                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+        ,breakatwhitespace=false
+        ,showlines=true
+        ,numberblanklines=true
+        ,frame=single
+        }
+%%%
+  
 \title{\bf Testing Document}
 \date{\vspace{-5ex}}
+
 \begin{document}
 \maketitle
 \tableofcontents
@@ -10,6 +28,7 @@ This document will outline testing procedures for the Checkers game. When first 
 \begin{enumerate}
 \item PLAY
 \item CUSTOM
+\item LOAD
 \end{enumerate}
 
 \section{PLAY}
@@ -110,6 +129,51 @@ In the event that the user inputs the correct format, the console will display a
 \item A1=W
 \item a1=w
 \item A3=W,B2=B
+\end{itemize}
+
+\section{SAVE}
+The user can press the save button at any time while playing. Currently, the save file is saved into a folder on the desktop.
+If the user doesn't have write permissions to the desktop, a message will appear saying "Save Unsuccessful".
+
+\section{LOAD}
+When the user clicks on LOAD, if the savefile exists, the game will switch to the playing state with the board set up.
+Loading of board configurations is handled internally by the same system as SETUP so the same limitations are shared,
+such as: the user cannot load a board with more than 12 pieces for each player.
+
+\subsection{Save File}
+If the save file exists, but the text inside doesn't hold legal parsable information, the game will stay in the menu and tells the user a save cannot be found.
+Only the first two lines of the save file are parsed. The first line contains who's turn it is to go out of {BLACK, WHITE}.
+And the second line contains the board setup as a string in the same format as inputted by a user.
+The user should not be writing in this file manually.
+
+\subsubsection*{Test Cases}
+\begin{itemize}
+\item Default board\hfill
+\begin{lstlisting}
+BLACK
+A1=W,A3=W,A7=B,B2=W,B6=B,B8=B,C1=W,C3=W,C7=B,D2=W,D6=B,D8=B,E1=W,E3=W,E7=B,F2=W,F6=B,F8=B,G1=W,G3=W,G7=B,H2=W,H6=B,H8=B"
+\end{lstlisting}
+
+\item Custom board\hfill 
+\begin{lstlisting}
+BLACK
+A1=W,A3=W,A7=B,B4=B,B8=B,C1=BK,C5=B,C7=W,D4=BK,D6=W,E3=W,F4=B,F6=B,F8=WK,G1=W,G3=W,G5=W,G7=WK,H6=B
+\end{lstlisting}
+
+\item Empty board\hfill 
+\begin{lstlisting}
+blAcK
+
+\end{lstlisting}
+
+\item Extra information\hfill 
+\begin{lstlisting}
+WHITE
+A1=W,A3=W,A7=B,B4=B,B8=B,C1=BK,C5=B,C7=W,D4=BK,D6=W,E3=W,F4=B,F6=B,F8=WK,G1=W,G3=W,G5=W,G7=WK,H6=B
+extra information and junk here
+is allowed in case we want to save score and such later on
+
+\end{lstlisting}
 \end{itemize}
 
 \end{document}
