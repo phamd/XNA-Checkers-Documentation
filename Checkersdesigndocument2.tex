@@ -3,6 +3,7 @@
 \linespread{1} % line spacing
 \geometry{letterpaper}
 \usepackage{tabularx}
+\usepackage{enumitem}
 \usepackage[parfill]{parskip} % begin paragraphs with an empty line rather than an indent
 \usepackage[ocgcolorlinks]{hyperref} %ocg coverts links to black when you print -- downside of unbreakable lines
 
@@ -59,6 +60,60 @@
     This document contains the decomposition, uses relationship, traceability, and internal evaluation.
     Note: Red links and the Uses diagram are clickable hyperlinks (depending on your PDF reader).
     
+\section{Requirements of Checkers}
+	\begin{enumerate}
+	\item Assignment 1 Requirements
+		 \begin{enumerate}[label*=\arabic*.]
+		 \item \CustomLabel{req:1.1}Must set up an 8x8 checkers board
+			\begin{enumerate}[label*=\arabic*.]
+				\item \CustomLabel{req:1.1.1}Squares will be either light or dark
+				\item \CustomLabel{req:1.1.2}The Bottom right square must be light
+			 \end{enumerate}
+		\item \CustomLabel{req:1.2}User must be able to choose the standard set up
+		\item \CustomLabel{req:1.3}Board Rules
+			\begin{enumerate}[label*=\arabic*.]
+			\item \CustomLabel{req:1.3.1} User must be able to specify starting position of each piece
+			\item \CustomLabel{req:1.3.2} Notation for specifying piece location must use standard form (A7 = B)
+			\item \CustomLabel{req:1.3.3} User should be able to specify type (normal or king)
+			\item \CustomLabel{req:1.3.4} If they specified every pieces starting position, user must be able to indicate if the set up is complete
+			\item \CustomLabel{req:1.3.5} User should be able to clear the board
+			\end{enumerate}
+		\item \CustomLabel{req:1.4} Maximum of 12 white and 12 black pieces can be placed on the board
+		\item \CustomLabel{req:1.5} Illegal placement notification:
+			\begin{enumerate}[label*=\arabic*.]
+			\item \CustomLabel{req:1.5.1} User should be notified if a piece choice is illegal
+			\item \CustomLabel{req:1.5.2} A piece on a light square
+			\item \CustomLabel{req:1.5.3} Exceeding the maximum number
+			\item \CustomLabel{req:1.5.4} Spelling/ typing error
+			\item \CustomLabel{req:1.5.6} There is already a piece there
+			\end{enumerate}
+		\item \CustomLabel{req:1.6} User should be notified if there in an inappropriate number of pieces on the board Inappropriate includes:
+			\begin{enumerate}[label*=\arabic*.]
+			\item \CustomLabel{req:1.6.1} Blank board
+			\end{enumerate}
+		\end{enumerate}
+
+	\item Assignment 2 Requirements	
+		\begin{enumerate}[label*=\arabic*.]
+		\item Load Saves \CustomLabel{req:2.1}
+			\begin{enumerate}[label*=\arabic*.]
+				\item \CustomLabel{req:2.1.1}
+				Start Game from original starting positions
+				\item \CustomLabel{req:2.1.2}
+				Start a game from a previously stored state from a within a file
+				\item \CustomLabel{req:2.1.3}Save a game to be resumed later
+			\end{enumerate}
+		\item Legal Moves and Crowning \CustomLabel{req:2.2}
+			\begin{enumerate}[label*=\arabic*.]
+				\item \CustomLabel{req:2.2.1} Make moves from one position to another, while making sure the move made is legal.
+				\item \CustomLabel{req:2.2.2} Simply move a piece to another square; jump the opponent’s piece (so that piece is removed from the board).
+				\item \CustomLabel{req:2.2.3} Crowning a piece to king
+				\item \CustomLabel{req:2.2.4} move kings in both directions (forwards and backwards).
+				\item \CustomLabel{req:2.2.5} Graphically or through code indicate possible movements.
+			\end{enumerate}
+		\end{enumerate}
+	\end{enumerate}
+
 \section{Module Guide}
 
 \subsection{Hardware Hiding Module}
@@ -67,6 +122,7 @@
     \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
         Type            & Hardware Module \\
         Secret          & This module translates mouse clicks and keyboard presses to be used by the rest of the software. \\
+        Requirements	& None \\
         Responsibilities & This module will take mouse and keyboard input and convert it to software usable states. \\
         Uses            & None \\
         Design          & \ref{mis:Input} \\
@@ -80,6 +136,7 @@
         \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
             Type            & Software Module \\
             Secret          & This module hides and separates specific piece information. \\
+	        Requirements	& \ref{req:1.3.3} \\
             Responsibilities & This will hold the necessary components to describe what a game piece will contain, which will be separate from the game board. \\
             Uses            & None \\
             Design          & \ref{mis:Piece} \\
@@ -93,6 +150,7 @@
         \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
             Type            & Software Module \\
             Secret          & This module hides how the graphics are displayed and how we switch between states of the game. \\
+	        Requirements	& \ref{req:1.2} \ref{req:1.3.1} \ref{req:1.3.2} \ref{req:1.3.4} \ref{req:1.3.4} \ref{req:2.2} \\
             Responsibilities & This module will be the responsible for the initial execution of the game, this class connects and launches critical components together. \\
             Uses            & \ref{mod:Board}, \ref{mod:Piece}, \ref{mod:Input} \\
             Design          & \ref{mis:Game1} \\
@@ -104,6 +162,7 @@
         \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
             Type            & Software Module \\
             Secret          & This module serves to hide the secret of how the board is defined internally. \\
+	        Requirements	& \ref{req:1.1} \ref{req:1.3.1} \ref{req:1.3.2} \ref{req:1.3.3} \ref{req:1.3.5} \ref{req:1.4} \ref{req:1.5} \ref{req:1.6}\\            
             Responsibilities & This module is responsible for holding the necessary components and attributes to setup the board and describe piece locations. \\
             Uses            & \ref{mod:Piece} \\
             Design          & \ref{mis:Board} \\
@@ -116,6 +175,7 @@
         \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
             Type            & Software Module \\
             Secret          & This module allows the user to save the current game session as a plain text file and also load previous games by parsing the plain text file into a representation of the board. \\
+            Requirements & \ref{req:1.3.2} \ref{req:2.1} \\
             Responsibilities & This module is responsible for the load and saving of the current game  \\
             Uses            & none \\
             Design          & \ref{mis:LoadSave} \\
@@ -137,7 +197,7 @@
     \path[draw,thick,->]
     (1) edge node {} (2)    % game1 to board
     (2) edge node {} (3)    % board to piece
-    (1) edge node {} (5)	% game1 to loadsave
+    (1) edge node {} (5)    % game1 to loadsave
     (1) edge node {} (4);   % game1 to input
     %%
     
@@ -161,8 +221,48 @@
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Changelog from Assignment 1 to Current}
 
-
+	\subsection{Board}
+	\begin{itemize}
+	\item if statements modified to switch colours of pieces
+	\item new getPiece that takes a vector argument so that mouse clicks can be used
+	\item getPiece modified to throw an exception if the piece is not found
+	\item getPieceArray added to return the entire array of pieces
+	\item movePiece function added 	
+	\end{itemize}
+	
+	\subsection{Piece}
+	\begin{itemize}
+	\item added a validMovements struct that holds all of the information about a pieces valid movement
+	\item added an enumerated variable containing the valid movement directions
+	\item added a getValidMovement function that returns the array of valid movements
+	\item added a setValidMovements function that gives a piece the squares it is able to move to	
+	\end{itemize}
+	
+	\subsection{Game1}	
+	\begin{itemize}
+	\item new enumerated variable added: PLAYER\_TURN
+	\item new variables added: currentPlayerTurn, fileIO 
+	\item new Texture2D variables: Menu\_ButtonLoad, Playing\_ButtonSave
+	\item new View\_Clickable: Playing\_ButtonSave, clickable\_SaveButton
+	\item board\_SquareSize has been changed into a constant
+	\item new Vector2 variable: mouseBoardPosition
+	\item graphics changed to include new load button 
+	\item switching of players turn added
+	\item new restrictions on dragging ability so that pieces only moved correctly
+	\item added more detailed clicking ability to restrict the movement of pieces on the correct turn
+	\item actions upon clicking updated to allow for full playing
+	\item takeInput function added that sets up the board if there is a file to open
+	\item added setValidMovements functions to give every piece on the board the squares they can move to	
+	\end{itemize}	
+	
+	\subparagraph{Added Module}
+	\begin{itemize}
+	\item added a new module FileIO to match requirement of being able to save and load games
+	\end{itemize}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Module Design (MIS and MID)}
 
@@ -175,6 +275,7 @@
                                      & \\
                                     typeState & enumerate if the piece is normal or king \\
                                     player & enumerate if piece owned by Black or White \\
+									validMovementStruct & structure that holds the valid movements\\
                               \end{tabular} \\
                               
             Constants       & \begin{tabular}[t]{@{} l p{8cm}} 
@@ -187,6 +288,8 @@
                                     getType() : typeState & Retrieves the piece's current type. \\
                                     setType(newType : typeState) & Changes the piece's type. \\ 
                                     getOwner() : player & Says who owns the piece. \\
+									getValidMovements() & Retrieves the movements that a piece can make.\\
+									setValidMovements (direction : validMoveDirection, col : int, row : int) & Assigns the valid movements for a piece\\
                               \end{tabular}
         \end{tabularx}
         
@@ -196,6 +299,7 @@
                                      & \\
                                     pieceType : typeState & holds current piece type \\
                                     owner : player & holds information of the piece's owner \\
+									validMovementArray : validMovementsStruct & holds all valid movements for a piece \\
                               \end{tabular} \\
 
             Access Programs & \begin{tabular}[t]{@{} l l p{8cm}} 
@@ -217,7 +321,19 @@
                                     Updates & None \\
                                     Outputs & owner \\ 
                                     Description & Returns which player the piece is owned by.\\
-                              \end{tabular} \\
+									\bf{getValidMovements()} : validMOvementsStruct[] & \\
+                                    Inputs & None \\
+                                    Updates & None \\ 
+                                    Outputs & validMovementArray \\
+                                    Description & Returns an array of the valid movements for a particular piece.\\
+                                     & \\
+									 \bf{setValidMovements(direction : validMoveDirection, col : int, row : int)} & \\
+                                    Inputs & direction, col, row \\
+                                    Updates & None \\ 
+                                    Outputs & validMovementArray \\
+                                    Description & Sets the places that are valid for a specific piece to move.\\
+                                     & \\
+							  \end{tabular} \\
                               
         \end{tabularx}
         
@@ -237,19 +353,25 @@
                                      & \\
                                     None & \\
                               \end{tabular} \\
-
             Access Programs & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
                                      & \\
                                     setUpBoard() & Sets up board based on user input. \\
                                      & \\
-                                    getPiece(col : int, row : int) : Piece & This method is used to determine if a piece exists on a square of the board. If the piece does exist, we pass it along to the caller. \\ 
+                                    getPiece(col : int, row : int) : Piece & This method is used to get a a piece from the given (x, y) location. If the piece does exist, we pass it along to the caller. \\ 
                                      & \\
+									 getPiece(location : Vector2) : Piece & This method is used to get a a piece from the given Vector. If the piece does exist, we pass it along to the caller.\\
+									 & \\
+									 getPieceArray() : Piece[] & Returns an array of all pieces that are currently on the board.\\
+									 & \\
                                     placePiece(col : int, row : int, piece : Piece) & Places the piece on the board while checking if the placement is legal (in terms of checkers). \\
                                      & \\
                                     movePiece(fromCol : int, fromRow : int, toCol : int, toRow : int) & Moves the piece from starting to end positions while checking if the movement is valid (in terms of checkers). \\
                                      & \\
+									 movePiece(originalLocation : Vector2, newLocation : Vector2) & Moves the piece from starting to end positions while checking if the movement is valid (in terms of checkers). \\
+									 & \\
+									 removePiece(column int, row int) & This method removes a piece off the board and will throw an exception if there is no piece at the given location.\\
+									 & \\
                                     clear() & Removes all pieces from the board. \\
-                                     & \\
                              \end{tabular}
         \end{tabularx}
         
@@ -286,6 +408,14 @@
 			    Description & Returns the piece currently at the location specified. \\
                                      & \\
                                      \end{tabular} \\
+							& \bf{getPiece(Location : Vector2)} : Piece \\
+                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}} 
+                                    Inputs & Location \\
+                                    Outputs & piece \\
+                                    Updates & None \\ 
+			    Description & Returns the piece currently at the location specified. \\
+                                     & \\
+                                     \end{tabular} \\
                             & \bf{placePiece(col : int, row : int, piece : Piece)} \\
                             & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}}
                                     Inputs &  col, row, piece \\
@@ -296,10 +426,26 @@
                                      \end{tabular} \\
                             & \bf{movePiece(fromCol : int, fromRow : int, toCol : int, toRow : int)} \\
                             & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}}
-                                    Inputs  & None \\
+                                    Inputs  & fromCol, fromRow, toCol, toRow \\
                                     Outputs & None \\
-                                    Updates & None \\
+                                    Updates & pieceArray \\
                                     Description & Moves piece at said location to the location specified. \\
+                                     & \\
+                                     \end{tabular} \\
+							& \bf{movePiece(originalLocation : Vector2, newLocation : Vector2)} \\
+                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}}
+                                    Inputs  & originalLocation, newLocation \\
+                                    Outputs & None \\
+                                    Updates & pieceArray \\
+                                    Description & Moves piece at said location to the location specified. \\
+                                     & \\
+                                     \end{tabular} \\
+							& \bf{removePiece(column : int, row : int)} \\
+                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}}
+                                    Inputs  & column, row \\
+                                    Outputs & None \\
+                                    Updates & pieceArray \\
+                                    Description & Removes the piece at the specified board location given by row and column. \\
                                      & \\
                                      \end{tabular} \\
                             & \bf{clear()} & \\
