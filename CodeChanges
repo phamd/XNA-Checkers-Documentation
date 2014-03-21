@@ -104,5 +104,3 @@ Inputs direction, col, row
 Updates None
 Outputs validMovementsArray
 Description Sets the places that are valid for a specific piece to move.
-
-
