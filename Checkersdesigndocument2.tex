@@ -357,14 +357,21 @@
                                      & \\
                                     setUpBoard() & Sets up board based on user input. \\
                                      & \\
-                                    getPiece(col : int, row : int) : Piece & This method is used to determine if a piece exists on a square of the board. If the piece does exist, we pass it along to the caller. \\ 
+                                    getPiece(col : int, row : int) : Piece & This method is used to get a a piece from the given (x, y) location. If the piece does exist, we pass it along to the caller. \\ 
                                      & \\
+									 getPiece(location : Vector2) : Piece & This method is used to get a a piece from the given Vector. If the piece does exist, we pass it along to the caller.\\
+									 & \\
+									 getPieceArray() : Piece[] & Returns an array of all pieces that are currently on the board.\\
+									 & \\
                                     placePiece(col : int, row : int, piece : Piece) & Places the piece on the board while checking if the placement is legal (in terms of checkers). \\
                                      & \\
                                     movePiece(fromCol : int, fromRow : int, toCol : int, toRow : int) & Moves the piece from starting to end positions while checking if the movement is valid (in terms of checkers). \\
                                      & \\
+									 movePiece(originalLocation : Vector2, newLocation : Vector2) & Moves the piece from starting to end positions while checking if the movement is valid (in terms of checkers). \\
+									 & \\
+									 removePiece(column int, row int) & This method removes a piece off the board and will throw an exception if there is no piece at the given location.\\
+									 & \\
                                     clear() & Removes all pieces from the board. \\
-                                     & \\
                              \end{tabular}
         \end{tabularx}
         
@@ -401,6 +408,14 @@
 			    Description & Returns the piece currently at the location specified. \\
                                      & \\
                                      \end{tabular} \\
+							& \bf{getPiece(Location : Vector2)} : Piece \\
+                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}} 
+                                    Inputs & Location \\
+                                    Outputs & piece \\
+                                    Updates & None \\ 
+			    Description & Returns the piece currently at the location specified. \\
+                                     & \\
+                                     \end{tabular} \\
                             & \bf{placePiece(col : int, row : int, piece : Piece)} \\
                             & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}}
                                     Inputs &  col, row, piece \\
@@ -411,10 +426,26 @@
                                      \end{tabular} \\
                             & \bf{movePiece(fromCol : int, fromRow : int, toCol : int, toRow : int)} \\
                             & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}}
-                                    Inputs  & None \\
+                                    Inputs  & fromCol, fromRow, toCol, toRow \\
                                     Outputs & None \\
-                                    Updates & None \\
+                                    Updates & pieceArray \\
                                     Description & Moves piece at said location to the location specified. \\
+                                     & \\
+                                     \end{tabular} \\
+							& \bf{movePiece(originalLocation : Vector2, newLocation : Vector2)} \\
+                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}}
+                                    Inputs  & originalLocation, newLocation \\
+                                    Outputs & None \\
+                                    Updates & pieceArray \\
+                                    Description & Moves piece at said location to the location specified. \\
+                                     & \\
+                                     \end{tabular} \\
+							& \bf{removePiece(column : int, row : int)} \\
+                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}}
+                                    Inputs  & column, row \\
+                                    Outputs & None \\
+                                    Updates & pieceArray \\
+                                    Description & Removes the piece at the specified board location given by row and column. \\
                                      & \\
                                      \end{tabular} \\
                             & \bf{clear()} & \\
