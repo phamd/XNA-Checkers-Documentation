@@ -27,6 +27,7 @@
 %%%
   
 \title{\bf Testing Document}
+\author{Group 2}
 \date{\vspace{-5ex}}
 
 \begin{document}
@@ -35,8 +36,8 @@
 
 \section{Changelog: Major Additions}
 \begin{itemize}
-\item Subsection \ref{a2:ss:valid} valid movements
-\item Subsection \ref{a2:ss:boardtests} Board placement C sharp code
+\item Subsection \ref{a2:ss:valid} Valid movements
+\item Subsection \ref{a2:ss:boardtests} Board placement C\# code
 \item Section \ref{a2:s:save} Save
 \item Section \ref{a2:s:load} Load
 \end{itemize}
@@ -273,14 +274,15 @@ And the second line contains the board setup as a string in the same format as i
 The user should not be writing in this file manually.
 
 \subsubsection*{Test Cases}
-For each test case.
+For each test case:
 We load the game and check if it is the right player's turn, if the pieces are in the correct place, and if the pieces's valid movements are correct.
+The following 4 test cases are valid.
 
 \begin{itemize}
 \item Default board\hfill
 \begin{lstlisting}
 BLACK
-A1=W,A3=W,A7=B,B2=W,B6=B,B8=B,C1=W,C3=W,C7=B,D2=W,D6=B,D8=B,E1=W,E3=W,E7=B,F2=W,F6=B,F8=B,G1=W,G3=W,G7=B,H2=W,H6=B,H8=B"
+A1=W,A3=W,A7=B,B2=W,B6=B,B8=B,C1=W,C3=W,C7=B,D2=W,D6=B,D8=B,E1=W,E3=W,E7=B,F2=W,F6=B,F8=B,G1=W,G3=W,G7=B,H2=W,H6=B,H8=B
 \end{lstlisting}
 
 \item Custom board\hfill 
@@ -298,7 +300,7 @@ blAcK
 \item Extra information\hfill 
 \begin{lstlisting}
 WHITE
-A1=W,A3=W,A7=B,B4=B,B8=B,C1=BK,C5=B,C7=W,D4=BK,D6=W,E3=W,F4=B,F6=B,F8=WK,G1=W,G3=W,G5=W,G7=WK,H6=B
+a1=wk,a3=w,A7=B,B4=B,B8=B,C1=BK,C5=B,C7=W,D4=BK,D6=W,E3=W,F4=B,F6=B,F8=WK,G1=W,G3=W,G5=W,G7=WK,H6=B
 extra information and junk here
 is allowed in case we want to save score and such later on
 
