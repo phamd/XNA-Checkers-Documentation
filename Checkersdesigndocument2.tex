@@ -619,7 +619,19 @@
         
         
 \section{Internal Evaluation}
-
+Evidently, our design makes use of several essential design principles for simplicity and efficiency.
+Our design makes use of a hierarchical structure to make the system easier to build and test. We
+made use of abstraction by having the program abstract the whole game, the game abstracts the
+board, the board abstracts the pieces, etc. so we could start assigning different parts to the group
+right away. We also used the idea of information hiding to make things that are
+likely to change private. This maximized efficiency and allowed us to get our design done very
+quickly. Our design makes use of the high cohesion and low coupling principles as much as possible
+to make sure our modules are meaningful when standing alone. We made a variety of decisions that improve the design, 
+the following are examples.The setting of valid moves is done incredibaly efficiently. We used integer comparisons 
+in the logic section and assign the valid moves to every piece which is much faster than if every piece's moves were 
+stored on the piece array. Special types in the design are enumerations so they can be converted quickly. Finally, 
+the Struct used combines all the information needed in one place and is very intuitive. Overall we made conscious 
+decisionsin the design to ensure that the principles of software design were followed closely.
 
         
 \end{document}
