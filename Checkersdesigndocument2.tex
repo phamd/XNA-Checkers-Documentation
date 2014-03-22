@@ -149,7 +149,7 @@
     \subsubsection{Game1 Module}\CustomLabel{mod:Game1}
         \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
             Type            & Software Module \\
-            Secret          & This module hides how the graphics are displayed and how we switch between states of the game. \\
+            Secret          & This module hides how the graphics are displayed and how we switch between states of the game. This module has also the responsibility of giving the valid moves of any piece on the board. \\
 	        Requirements	& \ref{req:1.2} \ref{req:1.3.1} \ref{req:1.3.2} \ref{req:1.3.4} \ref{req:1.3.4} \ref{req:2.2} \\
             Responsibilities & This module will be the responsible for the initial execution of the game, this class connects and launches critical components together. \\
             Uses            & \ref{mod:Board}, \ref{mod:Piece}, \ref{mod:Input} \\
@@ -481,6 +481,8 @@
                                     Update() & Allows the game to run logic such as switching state, updating the game, and gathering input. \\
                                     Draw() & Draws the correct graphics on screen depending on the state. \\ 
                                     takeInput() & Takes user input for setting up a board. \\
+                                    setValidMovements(Board : board) & Sets the valid movement for every piece. \\
+                                    setValidMovements(Board : board, X : int, Y : int) & Sets the valid movement for an individual piece at a given (X,Y) location on the board. 
                               \end{tabular}
         \end{tabularx}
         
@@ -514,6 +516,18 @@
                                     Updates & None \\
                                     Outputs & board \\ 
                                     Description & Takes user input and sends it to the board using board.SetUpBoard().\\
+                                    & \\
+                                    \bf{setValidMovements(Board : board)} & \\
+                                    Inputs & Board \\
+                                    Updates & Board \\
+                                    Outputs & None \\
+                                    Description & Sets the valid movements for every Piece. Default constructor to set them for the entire board. The safe locations to move to are stored within the Pieces. The valid locations are assigned in the order: Top Left -> Top Right -> Bottom Right -> Bottom Left. The default constructor allows for calling the function with no paramaters to set up the entire board. This function loops through each piece element and calls upon setValidMovements for each individual piece to calculate the valid movements of the entire board.
+                                    & \\
+                                    \bf{setValidMovements(Board : board, X : int, Y : int)} & \\
+                                    Inputs & Board, X , Y \\
+                                    Updates & Board \\
+                                    Outputs & None \\
+                                    Description & Sets the valid movements for an individual Piece. The valid movements are a combination of an x direction and a y direction. initialized to a flag of an unreachable location. Game logic and checkers rule and game logic are contained within this function to judge where a piece can be placed.
                               \end{tabular} \\
                               
         \end{tabularx}
