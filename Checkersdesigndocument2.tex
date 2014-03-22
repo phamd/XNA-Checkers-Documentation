@@ -468,7 +468,7 @@
         \begin{tabularx}{\linewidth}{@{} >{\bfseries}r Xp{5cm} }
             Types           & \begin{tabular}[t]{@{} l p{8cm}} 
                                      & \\
-                                    state & enumerate if the game is in Menu, Setup, or Playing \\
+                                    state & enumerate if the game is in Menu, Setup, Playing, or Load \\
                               \end{tabular} \\
                               
             Constants       & \begin{tabular}[t]{@{} l p{8cm}} 
@@ -488,7 +488,8 @@
         \begin{tabularx}{\linewidth}{ >{\bfseries}r Xp{5cm} }
             Variables       & \begin{tabular}[t]{@{} l p{8cm}} 
                                      & \\
-                                    currentState : state & holds information of the current state \\
+                                    currentState : state & holds information of the current state. \\
+			    keyState : KeyboardState & holds information about the state of the keyboard. \\
                                     input : string & holds board setup from user \\ 
                                     board : Board & \\
                                     pieceList : List &  Holds information of where to graphically place each piece. \\
