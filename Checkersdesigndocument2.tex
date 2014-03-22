@@ -149,7 +149,7 @@
     \subsubsection{Game1 Module}\CustomLabel{mod:Game1}
         \begin{tabularx}{\linewidth}{ >{\bfseries}r X }
             Type            & Software Module \\
-            Secret          & This module hides how the graphics are displayed and how we switch between states of the game. \\
+            Secret          & This module hides how the graphics are displayed and how we switch between states of the game. This module has also the responsibility of giving the valid moves of any piece on the board. \\
 	        Requirements	& \ref{req:1.2} \ref{req:1.3.1} \ref{req:1.3.2} \ref{req:1.3.4} \ref{req:1.3.4} \ref{req:2.2} \\
             Responsibilities & This module will be the responsible for the initial execution of the game, this class connects and launches critical components together. \\
             Uses            & \ref{mod:Board}, \ref{mod:Piece}, \ref{mod:Input} \\
@@ -308,7 +308,7 @@
             Access Programs & \\
                              & \\
                             & \bf{getType()} : typeState \\
-                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}}
+                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
                                 Inputs &  None \\
                                 Updates & None \\
                                 Outputs & pieceType \\
@@ -316,7 +316,7 @@
                                  & \\
                             \end{tabular} \\
                             & \bf{setType(newType : typeState)} \\
-                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}}
+                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
                                 Inputs & newType \\
                                 Updates & None \\ 
                                 Outputs & pieceType \\
@@ -324,7 +324,7 @@
                                  & \\
                             \end{tabular} \\
                             & \bf{getOwner()} : player \\
-                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}}
+                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
                                 Inputs & None \\
                                 Updates & None \\
                                 Outputs & owner \\ 
@@ -332,7 +332,7 @@
                                  & \\
                                 \end{tabular} \\
                             &\bf{getValidMovements()} : validMOvementsStruct[] \\
-                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}}
+                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
                                 Inputs & None \\
                                 Updates & None \\ 
                                 Outputs & validMovementArray \\
@@ -340,7 +340,7 @@
                                  & \\
                             \end{tabular} \\
                             &\bf{setValidMovements(direction : validMoveDirection, col : int, row : int)} \\
-                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}}
+                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
                                 Inputs & direction, col, row \\
                                 Updates & None \\ 
                                 Outputs & validMovementArray \\
@@ -405,7 +405,7 @@
                               \end{tabular} \\
             Access Programs & \\
                             & \bf{setUpBoard(input : string)} \\
-                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}} 
+                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}} 
                                     Inputs & input \\
                                     Outputs & pieceArray, numWhitePieces, numBlackPieces \\
                                     Updates & None \\
@@ -413,7 +413,7 @@
                                      & \\
                                      \end{tabular} \\
                             & \bf{getPiece(col : int, row : int)} : Piece \\
-                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}} 
+                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}} 
                                     Inputs & col, row \\
                                     Outputs & piece \\
                                     Updates & None \\ 
@@ -421,7 +421,7 @@
                                      & \\
                                      \end{tabular} \\
 							& \bf{getPiece(Location : Vector2)} : Piece \\
-                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}} 
+                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}} 
                                     Inputs & Location \\
                                     Outputs & piece \\
                                     Updates & None \\ 
@@ -429,7 +429,7 @@
                                      & \\
                                      \end{tabular} \\
                             & \bf{placePiece(col : int, row : int, piece : Piece)} \\
-                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}}
+                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
                                     Inputs &  col, row, piece \\
                                     Outputs & None \\
                                     Updates & pieceArray, numWhitePieces, numBlackPieces \\ 
@@ -437,7 +437,7 @@
                                      & \\
                                      \end{tabular} \\
                             & \bf{movePiece(fromCol : int, fromRow : int, toCol : int, toRow : int)} \\
-                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}}
+                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
                                     Inputs  & fromCol, fromRow, toCol, toRow \\
                                     Outputs & None \\
                                     Updates & pieceArray \\
@@ -445,7 +445,7 @@
                                      & \\
                                      \end{tabular} \\
 							& \bf{movePiece(originalLocation : Vector2, newLocation : Vector2)} \\
-                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}}
+                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
                                     Inputs  & originalLocation, newLocation \\
                                     Outputs & None \\
                                     Updates & pieceArray \\
@@ -453,7 +453,7 @@
                                      & \\
                                      \end{tabular} \\
 							& \bf{removePiece(column : int, row : int)} \\
-                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}}
+                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
                                     Inputs  & column, row \\
                                     Outputs & None \\
                                     Updates & pieceArray \\
@@ -461,7 +461,7 @@
                                      & \\
                                      \end{tabular} \\
                             & \bf{clear()} & \\
-                            & \begin{tabular}[t]{@{} p{2.5cm} p{10cm}}
+                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
                                     Inputs  & None \\
                                     Outputs & pieceArray, numWhitePieces, numBlackPieces \\
                                     Updates & None \\
@@ -488,16 +488,18 @@
                                     None & \\
                               \end{tabular} \\
 
-            Access Programs & \begin{tabular}[t]{@{} l p{8cm}}
+            Access Programs & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
                                      & \\
                                     Update() & Allows the game to run logic such as switching state, updating the game, and gathering input. \\
                                     Draw() & Draws the correct graphics on screen depending on the state. \\ 
                                     takeInput() & Takes user input for setting up a board. \\
+                                    setValidMovements(Board : board) & Sets the valid movement for every piece. \\
+                                    setValidMovements(Board : board, X : int, Y : int) & Sets the valid movement for an individual piece at a given (X,Y) location on the board. 
                               \end{tabular}
         \end{tabularx}
         
     \subsubsection{Implementation}
-        \begin{tabularx}{\linewidth}{ >{\bfseries}r Xp{5cm} }
+        \begin{longtabu}{ >{\bfseries}r Xp{2cm} }
             Variables       & \begin{tabular}[t]{@{} l p{8cm}} 
                                      & \\
                                     currentState : state & holds information of the current state. \\
@@ -507,7 +509,7 @@
                                     pieceList : List &  Holds information of where to graphically place each piece. \\
                               \end{tabular} \\
 
-            Access Programs & \begin{tabular}[t]{@{} l p{8cm}} 
+            Access Programs & \begin{tabular}[t]{@{} p{4cm} p{8cm}} 
                                      & \\
                                     \bf{Update()} & \\
                                     Inputs &  None \\
@@ -526,15 +528,24 @@
                                     Updates & None \\
                                     Outputs & board \\ 
                                     Description & Takes user input and sends it to the board using board.SetUpBoard().\\
+                                    & \\
+                                    \bf{setValidMovements(Board : board)} & \\
+                                    Inputs & Board \\
+                                    Updates & Board \\
+                                    Outputs & None \\
+                                    Description & Sets the valid movements for every Piece. Default constructor to set them for the entire board. The safe locations to move to are stored within the Pieces. The valid locations are assigned in the order: Top Left -> Top Right -> Bottom Right -> Bottom Left. The default constructor allows for calling the function with no paramaters to set up the entire board. This function loops through each piece element and calls upon setValidMovements for each individual piece to calculate the valid movements of the entire board. \\
+                                    & \\
+                                    \bf{setValidMovements(Board : board, X : int, Y : int)} & \\
+                                    Inputs & Board, X , Y \\
+                                    Updates & Board \\
+                                    Outputs & None \\
+                                    Description & Sets the valid movements for an individual Piece. The valid movements are a combination of an x direction and a y direction. initialized to a flag of an unreachable location. Game logic and checkers rule and game logic are contained within this function to judge where a piece can be placed. \\
                               \end{tabular} \\
-                              
-        \end{tabularx}
+        \end{longtabu}
 
 
-
-
-
-
+        
+        
 
 \subsection{FileIO Module}\CustomLabel{mis:LoadSave}
     \subsubsection{Interface}
