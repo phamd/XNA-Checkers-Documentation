@@ -112,6 +112,37 @@
 				\item \CustomLabel{req:2.2.5} Graphically or through code indicate possible movements.
 			\end{enumerate}
 		\end{enumerate}
+	\item Assignment 3 Requirements
+		\begin{enumerate}[label*=\arabic*.]
+			\item \CustomLabel{req:3.1}
+			Two Player Game mode
+			\begin{enumerate}[label*=\arabic*.]
+				\item \CustomLabel{req:3.1.1} Two humans must be allowed to play against each other
+				\item \CustomLabel{req:3.1.2} GUI menu must allow for this type of interaction
+				\item \CustomLabel{req:3.1.3} Must allow for turn based action depending on the player
+			\end{enumerate}
+			\item \CustomLabel{req:3.2}
+			Single Player Against AI
+			\begin{enumerate}[label*=\arabic*.]
+				\item \CustomLabel{req:3.2.1} GUI menu must allow for selection of Human vs AI mode
+				\item \CustomLabel{req:3.2.2} Both AI and Human opponent must only be allowed to make legal moves such as:
+				\begin{itemize}
+				\item Move a piece to another square
+				\item jump the opponent's piece (so that piece is removed from the board)
+				\item convert a piece to a “king”
+				\item move kings in both directions (forwards and backwards)
+				\item If a capture move is possible it must be taken. If more than one such move is possible, the player chooses which one to make.
+				\end{itemize}
+				\item Allowing the player to resign the game
+				\item \CustomLabel{req:3.2.3} Indicating moves graphically or by code (E3-D4 etc), or both. 
+			\end{enumerate}
+			\item \CustomLabel{req:3.3}
+			Game play rules
+			\begin{enumerate}[label*=\arabic*.]
+				\item \CustomLabel{req:3.3.1} Indicate if the game has been won
+				\item \CustomLabel{req:3.3.2} Include any on screen help you think is necessary or helpful.
+			\end{enumerate}
+		\end{enumerate}
 	\end{enumerate}
 
 \section{Module Guide}
