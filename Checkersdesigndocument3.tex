@@ -324,6 +324,8 @@
 									getValidMovements() & Retrieves the movements that a piece can make.\\
                                      & \\
 									setValidMovements (direction : validMoveDirection, col : int, row : int) & Assigns the valid movements for a piece\\
+                                    & \\
+                                    canJump() & Retrieves whether there is a jump in any direction. \\
                               \end{tabular}
         \end{tabularx}
         
@@ -334,6 +336,7 @@
                                     pieceType : typeState & holds current piece type \\
                                     owner : player & holds information of the piece's owner \\
 									validMovementArray : validMovementsStruct & holds all valid movements for a piece \\
+                                    isAJump : bool & holds whether or not a jump is available
                               \end{tabular} \\
 
             Access Programs & \\
@@ -376,7 +379,14 @@
                                 Updates & None \\ 
                                 Outputs & validMovementArray \\
                                 Description & Sets the places that are valid for a specific piece to move.\\
-                                 & \\                                
+                                 & \\  
+                            &\bf{canJump()} \\
+                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
+                                Inputs & None\\
+                                Updates & None \\ 
+                                Outputs &  None\\
+                                Description & returns true if any directions have a jump availabe, otherwise returns false.\\
+                                 & \\  
                             \end{tabular} \\
         \end{longtabu}
         
