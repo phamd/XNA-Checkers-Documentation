@@ -4,7 +4,6 @@
 \geometry{letterpaper}
 \usepackage{tabularx, tabu, longtable}
 \usepackage{enumitem}
-\usepackage{color}
 \usepackage[parfill]{parskip} % begin paragraphs with an empty line rather than an indent
 \usepackage[ocgcolorlinks]{hyperref} %ocg coverts links to black when you print -- downside of unbreakable lines
 
@@ -253,8 +252,8 @@
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Revision history}
-	Revisions will also be marked in the MIS and MID in \textcolor{red}{red} regarding changes and or deletions in the module specifically
+\section{Changelog from Assignment 1 to Current}
+
 	\subsection{Board}
 	\begin{itemize}
 	\item nothing
@@ -277,8 +276,12 @@
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{American Checkers Rule that is Implemented in the Game} 
+<<<<<<< HEAD
 	\subsection{Game play Rules} \footnote{Arneson, Erik. "How To Play Checkers (Using Standard U.S. Rules)." About.com Board/ Card Games. About.com, n.d. Web. 7 Apr. 2014. \url{http://boardgames.about.com/cs/checkersdraughts/ht/play_checkers.htm}}
 	
+=======
+	\subsection{Game play Rules}\footnote{Arneson, Erik. \"How To Play Checkers (Using Standard U.S. Rules).\" About.com Board / Card Games. About.com, n.d. Web. 7 Apr. 2014. <http://boardgames.about.com/cs/checkersdraughts/ht/play_checkers.htm>}
+>>>>>>> a586ca1f44334956cd3e5dd398692489b3bd58cc
 	\begin{itemize}
 		\item Checkers is played by two players. Each player begins the game with 12 colored discs. (Typically, one set of pieces is black and the other red.)
 		\item The board consists of 64 squares, alternating between 32 dark and 32 light squares. It is positioned so that each player has a light square on the right side corner closest to him or her.
@@ -500,6 +503,52 @@
                                     Updates & None \\
                                     Description & Clears the board of all pieces. pieceArray' = Array of null objects, numWhitePieces' = 0 or numBlackPieces' = 0. \\
                                      \end{tabular} \\
+<<<<<<< HEAD
+=======
+                            & \bf{getJumpingPiece()} & \\
+                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
+                                    Inputs  &  None\\
+                                    Outputs &  jumpingPiece\\
+                                    Updates &  None\\
+                                    Description & Retrieves the piece that is currently jumping.\\
+                                     \end{tabular} \\
+                            & \bf{setJumpingPiece(newJumpingPiece : Piece)} & \\
+                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
+                                    Inputs  &  newJumpingPiece\\
+                                    Outputs &  jumpingPiece\\
+                                    Updates &  None\\
+                                    Description & Sets a new piece to be currently jumping.\\
+                                     \end{tabular} \\
+                            & \bf{setJumpAvailable(colour : Piece, jumpAvailability : bool)} & \\
+                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
+                                    Inputs  &  colour, jumpAvailability\\
+                                    Outputs &  None\\
+                                    Updates &  None\\
+                                    Description & Sets whether a jump is available for the indicated player.\\
+                                     \end{tabular} \\
+                            & \bf{getJumpAvailable(colour : Piece)} & \\
+                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
+                                    Inputs  &  colour\\
+                                    Outputs &  jumpAvailabile\\
+                                    Updates &  \\
+                                    Description & Gets whether a jump is available for the indicated player.\\
+                                     \end{tabular} \\
+                            & \bf{getJumpAvailable()} & \\
+                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
+                                    Inputs  &  None\\
+                                    Outputs &  jumpAvailable[]\\
+                                    Updates &  None\\
+                                    Description & Gets whether a jump is available for both players.\\
+                                     \end{tabular} \\
+                            & \bf{getNumPieces(colour : Piece)} & \\
+                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
+                                    Inputs  &  colour\\
+                                    Outputs &  numPieces\\
+                                    Updates &  None\\
+                                    Description & returns the number of specified colour pieces on the board.\\
+                                     \end{tabular} \\
+                            
+>>>>>>> a586ca1f44334956cd3e5dd398692489b3bd58cc
         \end{longtabu}
         
 
