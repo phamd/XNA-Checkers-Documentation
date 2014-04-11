@@ -252,7 +252,7 @@
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Changelog from Assignment 1 to Current}
+\section{Revision History}
 
 	\subsection{Board}
 	\begin{itemize}
@@ -266,7 +266,9 @@
 	
 	\subsection{Game1}	
 	\begin{itemize}
-	\item nothing
+	\item Added win condition and function to handle win conditions
+	\item Updated game logic making it more extensive game logic checking which locks the current move if there is a jump
+	\item Added Game timer where if the turn has reached end of game time the turn is forfeited and the game is finished
 	\end{itemize}	
 	
 	\subparagraph{Added Module}
@@ -566,6 +568,7 @@
                                     setValidMovements(Board : board, X : int, Y : int) & Sets the valid movement for an individual piece at a given (X,Y) location on the board. \\
                                     win(PLAYER : player) & Once win condition is satisfied the board is cleared and reset and the player that won will be displayed on the board \\
                                     changeTurn() & Automatically changes the turn that game is on, once the player has finished their turn\\
+                                    moveTimerTick(source : Object, e : ElapsedEventArgs) & Will count down the player's allocated time during the turn, if the turn is not played and the time has ran out. The game is foreited and the game has finished.
                               \end{tabular}
         \end{tabularx}
         
@@ -673,6 +676,11 @@ True & True & 2
                                     Updates & CurrentPlayerTurn, Board \\
                                     Outputs & None \\
                                     Description & Abstracts away the need for a manual update of which turn the game is in currently and calling this function will automatically set the board up for the next player's turn \\
+                              		\bf{moveTimerTick(source : Object, e : ElapsedEventArgs)} & \\
+          		                    Inputs & None \\
+                                    Updates & CurrentPlayerTurn, Board \\
+                                    Outputs & None \\
+                                    Description & Initializes the timer component for each turn, and will execute the win condition if the timer has counted down to zero. \\
                               \end{tabular} \\
         \end{longtabu}
 
