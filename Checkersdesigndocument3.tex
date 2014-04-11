@@ -415,6 +415,18 @@
 									 removePiece(column int, row int) & This method removes a piece off the board and will throw an exception if there is no piece at the given location.\\
 									 & \\
                                     clear() & Removes all pieces from the board. \\
+                                    & \\
+                                    getJumpingPiece() & Returns the piece that is currently jumping. \\
+                                    & \\
+                                    setJumpingPiece(numJumpingPiece: Piece) & Set the piece that is currently jumping.  \\
+                                    & \\
+                                    setJumpAvailable(colour : Piece.PLAYER, jumpAvailability : bool) & Sets a true or false boolean for if there is a jump on the board. \\
+                                    & \\
+                                    getJumpAvailable(colour : Piece.PLAYER) & Returns whether a jump is on the board for a specific colour. \\
+                                    & \\
+                                    getJumpAvailable() & Returns whether any jump is on the board. \\
+                                    & \\
+                                    getNumPieces(coulour : Piece.PLAYER) & Returns the number of pieces of a specified colour. \\
                              \end{tabular}
         \end{tabularx}
         
