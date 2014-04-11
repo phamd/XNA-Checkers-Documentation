@@ -277,7 +277,7 @@
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{American Checkers Rule that is Implemented in the Game} 
-	\subsection{Game play Rules} .\footnote{Arneson, Erik. "How To Play Checkers (Using Standard U.S. Rules)." About.com Board / Card Games. About.com, n.d. Web. 7 Apr. 2014. <http://boardgames.about.com/cs/checkersdraughts/ht/play_checkers.htm>}
+	\subsection{Game play Rules} \footnote{Arneson, Erik. "How To Play Checkers (Using Standard U.S. Rules)." About.com Board/ Card Games. About.com, n.d. Web. 7 Apr. 2014. \url{http://boardgames.about.com/cs/checkersdraughts/ht/play_checkers.htm}}
 	
 	\begin{itemize}
 		\item Checkers is played by two players. Each player begins the game with 12 colored discs. (Typically, one set of pieces is black and the other red.)
@@ -326,8 +326,6 @@
 									getValidMovements() & Retrieves the movements that a piece can make.\\
                                      & \\
 									setValidMovements (direction : validMoveDirection, col : int, row : int) & Assigns the valid movements for a piece\\
-                                    & \\
-                                    canJump() & Retrieves whether there is a jump in any direction. \\
                               \end{tabular}
         \end{tabularx}
         
@@ -338,7 +336,6 @@
                                     pieceType : typeState & holds current piece type \\
                                     owner : player & holds information of the piece's owner \\
 									validMovementArray : validMovementsStruct & holds all valid movements for a piece \\
-                                    isAJump : bool & holds whether or not a jump is available \\
                               \end{tabular} \\
 
             Access Programs & \\
@@ -381,14 +378,7 @@
                                 Updates & None \\ 
                                 Outputs & validMovementArray \\
                                 Description & Sets the places that are valid for a specific piece to move.\\
-                                 & \\  
-                            &\bf{canJump()} \\
-                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
-                                Inputs & None\\
-                                Updates & None \\ 
-                                Outputs &  None\\
-                                Description & returns true if any directions have a jump availabe, otherwise returns false.\\
-                                 & \\  
+                                 & \\                                
                             \end{tabular} \\
         \end{longtabu}
         
@@ -445,9 +435,6 @@
                                     pieceArray : array & Contains all the Piece objects currently on the board in an array. \\
                                     numWhitePieces : int & Holds the number of white pieces on the board as an integer. \\
                                     numBlackPieces : int & Holds the number of black pieces on the board as an integer. \\
-                                    numPieces : int & holds the number of pieces. \\
-                                    jumpingPiece : Piece & saves the piece that is currently jumping. \\
-                                    jumpAvailable : bool[] & holds whether or not a jump can be mad and by which player. \\
                               \end{tabular} \\
             Access Programs & \\
                             & \bf{setUpBoard(input : string)} \\
@@ -513,42 +500,6 @@
                                     Updates & None \\
                                     Description & Clears the board of all pieces. pieceArray' = Array of null objects, numWhitePieces' = 0 or numBlackPieces' = 0. \\
                                      \end{tabular} \\
-                            & \bf{getJumpingPiece()} & \\
-                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
-                                    Inputs  &  None\\
-                                    Outputs &  jumpingPiece\\
-                                    Updates &  None\\
-                                    Description & Retrieves the piece that is currently jumping.\\
-                                     \end{tabular} \\
-                            & \bf{setJumpingPiece(newJumpingPiece : Piece)} & \\
-                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
-                                    Inputs  &  newJumpingPiece\\
-                                    Outputs &  jumpingPiece\\
-                                    Updates &  None\\
-                                    Description & Sets a new piece to be currently jumping.\\
-                                     \end{tabular} \\
-                            & \bf{setJumpAvailable()} & \\
-                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
-                                    Inputs  &  \\
-                                    Outputs &  \\
-                                    Updates &  \\
-                                    Description & \\
-                                     \end{tabular} \\
-                            & \bf{getJumpAvailable()} & \\
-                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
-                                    Inputs  &  \\
-                                    Outputs &  \\
-                                    Updates &  \\
-                                    Description & \\
-                                     \end{tabular} \\
-                            & \bf{getNumPieces()} & \\
-                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
-                                    Inputs  &  \\
-                                    Outputs &  \\
-                                    Updates &  \\
-                                    Description & \\
-                                     \end{tabular} \\
-                            
         \end{longtabu}
         
 
@@ -577,18 +528,70 @@
                                     takeInput() & Takes user input for setting up a board. \\
                                     setValidMovements(Board : board) & Sets the valid movement for every piece. \\
                                     setValidMovements(Board : board, X : int, Y : int) & Sets the valid movement for an individual piece at a given (X,Y) location on the board. 
+                                    win(PLAYER : player) & Once win condition is satisfied the board is cleared and reset and the player that won will be displayed on the board
+                                    changeTurn() & Automatically changes the turn that game is on, once the player has finished their turn
                               \end{tabular}
         \end{tabularx}
         
     \subsubsection{Implementation}
+    	The game logic that we ahve implemented in the game is described by the tabular expression below, with  JumpAvalible being a boolean that describes if the current game piece has a jump that is available to it, while JumpPieceSet is a boolean that describes if there are a set of multiple jumps the piece can take.
+\begin{table}[ht]
+\caption{Case Description}
+\centering
+\begin{tabular}{c c}
+\hline \hline
+Case Number & Description \\ [0.5ex]
+\hline
+1 & \begin{tabular}{@{}c@{}}if there is a jump available and the jumping piece is set \\ check if that piece can continue jumping and jump with it, else end the turn\end{tabular} 
+
+\\
+2 & \begin{tabular}{@{}c@{}}if there is a jump available and there is no piece currently \\ jumping then make the jump and set which piece is jumping\end{tabular} 
+
+\\
+3 & \begin{tabular}{@{}c@{}}if there is no jump available and no piece has jumped yet \\ then move normally (not jumping) and change the turn\end{tabular} 
+
+\\
+4 & if you already jumped and you can't jump anymore, your turn is over
+
+\\
+\hline
+\end{tabular}
+\label{table:nonlin}
+\end{table}
+
+
+\begin{table}[ht]
+\caption{Tabular Expression for Game Logic}
+\centering
+\begin{tabular}{c c c}
+\hline \hline
+JumpAvailable & JumpingPieceSet & Case \\ [0.5ex]
+\hline
+False & False & 3 
+\\
+False & True & 4 
+\\
+True & False & 2 
+\\
+True & True & 2 
+\\
+\hline
+\end{tabular}
+\label{table:nonlin}
+\end{table}
         \begin{longtabu}{ >{\bfseries}r Xp{2cm} }
             Variables       & \begin{tabular}[t]{@{} l p{8cm}} 
                                      & \\
-                                    currentState : state & holds information of the current state. \\
-			    keyState : KeyboardState & holds information about the state of the keyboard. \\
+                               		currentState : state & holds information of the current state. \\
+									keyState : KeyboardState & holds information about the state of the keyboard. \\
                                     input : string & holds board setup from user \\ 
-                                    board : Board & \\
-                                    pieceList : List &  Holds information of where to graphically place each piece. \\
+                                    board : Board & an instance of the module board to interact with\\
+                                    pieceList : List &  holds information of where to graphically place each piece \\
+									fileio : FileIO & an instance of FileIO so that load save function can work correctly in the game\\
+									currentPlayerTurn : Player & this holds the instance of which current player is currently on their move\\
+									aiEnabled : Boolean & switches between human vs human and ai vs human \\
+									aiPlayer : Player & initalized when the player picks to play against an AI\\
+                                    
                               \end{tabular} \\
 
             Access Programs & \begin{tabular}[t]{@{} p{4cm} p{8cm}} 
@@ -622,6 +625,18 @@
                                     Updates & Board \\
                                     Outputs & None \\
                                     Description & Sets the valid movements for an individual Piece. The valid movements are a combination of an x direction and a y direction. initialized to a flag of an unreachable location. Game logic and checkers rule and game logic are contained within this function to judge where a piece can be placed. \\
+                                    & \\
+                                    \bf{win(PLAYER : player)} & \\
+          		                    Inputs & PLAYER \\
+                                    Updates & Board, PLAYER \\
+                                    Outputs & None \\
+                                    Description & This function will be called when the win condition is true and will clear and rest the board while calling other functions to signal the finish of the game \\
+                                    & \\
+                                    \bf{changeTurn()} & \\
+          		                    Inputs & None \\
+                                    Updates & CurrentPlayerTurn, Board \\
+                                    Outputs & None \\
+                                    Description & Abstracts away the need for a manual update of which turn the game is in currently and calling this function will automatically set the board up for the next player's turn \\
                               \end{tabular} \\
         \end{longtabu}
 
