@@ -327,6 +327,8 @@
 									getValidMovements() & Retrieves the movements that a piece can make.\\
                                      & \\
 									setValidMovements (direction : validMoveDirection, col : int, row : int) & Assigns the valid movements for a piece\\
+                                     & \\
+    								canJump () & Returns true if there is a possible jump.\\
                               \end{tabular}
         \end{tabularx}
         
@@ -379,7 +381,14 @@
                                 Updates & None \\ 
                                 Outputs & validMovementArray \\
                                 Description & Sets the places that are valid for a specific piece to move.\\
-                                 & \\                                
+                                 & \\
+                            &\bf{canJump()} \\
+                            & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
+                                Inputs & None \\
+                                Updates & None \\ 
+                                Outputs & None \\
+                                Description & Returns true if there is a jump available and false otherwise.\\
+                                 & \\   
                             \end{tabular} \\
         \end{longtabu}
 
@@ -417,7 +426,7 @@
                                     & \\
                                     getJumpingPiece() & Returns the piece that is currently jumping. \\
                                     & \\
-                                    setJumpingPiece(numJumpingPiece: Piece) & Set the piece that is currently jumping.  \\
+                                    setJumpingPiece(newJumpingPiece: Piece) & Set the piece that is currently jumping.  \\
                                     & \\
                                     setJumpAvailable(colour : Piece.PLAYER, jumpAvailability : bool) & Sets a true or false boolean for if there is a jump on the board. \\
                                     & \\
