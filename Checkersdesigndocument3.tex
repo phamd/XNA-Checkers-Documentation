@@ -589,16 +589,16 @@
 \hline \hline
 Case Number & Description \\ [0.5ex]
 \hline
-1 & \begin{tabular}{@{}c@{}}if there is a jump available and the jumping piece is set \\ check if that piece can continue jumping and jump with it, else end the turn\end{tabular} 
+1 & \begin{tabular}{@{}c@{}}If there is a jump available and the jumping piece is set \\ check if that piece can continue jumping and jump with it, else end the turn\end{tabular} 
 
 \\
-2 & \begin{tabular}{@{}c@{}}if there is a jump available and there is no piece currently \\ jumping then make the jump and set which piece is jumping\end{tabular} 
+2 & \begin{tabular}{@{}c@{}}If there is a jump available and there is no piece currently \\ jumping then make the jump and set which piece is jumping\end{tabular} 
 
 \\
-3 & \begin{tabular}{@{}c@{}}if there is no jump available and no piece has jumped yet \\ then move normally (not jumping) and change the turn\end{tabular} 
+3 & \begin{tabular}{@{}c@{}}If there is no jump available and no piece has jumped yet \\ then move normally (not jumping) and change the turn\end{tabular} 
 
 \\
-4 & if you already jumped and you can't jump anymore, your turn is over
+4 & If you already jumped and you can't jump anymore, your turn is over
 
 \\
 \hline
@@ -677,7 +677,7 @@ True & True & 1
           		                    Inputs & PLAYER \\
                                     Updates & Board, PLAYER \\
                                     Outputs & None \\
-                                    Description & This function will be called when the win condition is true and will clear and rest the board while calling other functions to signal the finish of the game \\
+                                    Description & This function will be called when the win condition is true and will clear and reset the board while calling other functions to signal the finish of the game \\
                                     & \\
                                     \bf{changeTurn()} & \\
           		                    Inputs & None \\
