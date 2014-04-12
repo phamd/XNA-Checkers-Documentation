@@ -427,7 +427,7 @@
                                     & \\
                                     getJumpingPiece() & Returns the piece that is currently jumping. \\
                                     & \\
-                                    setJumpingPiece(newJumpingPiece: Piece) & Set the piece that is currently jumping.  \\
+                                    \hspace{0pt}setJumpingPiece(newJumpingPiece: Piece) & Set the piece that is currently jumping.  \\
                                     & \\
                                     setJumpAvailable(colour : Piece.PLAYER, jumpAvailability : bool) & Sets a true or false boolean for if there is a jump on the board. \\
                                     & \\
@@ -651,55 +651,62 @@ True & True & 1
                                     
                               \end{tabular} \\
 
-            Access Programs & \begin{tabular}[t]{@{} p{4cm} p{8cm}} 
-                                     & \\
-                                    \bf{Update()} & \\
+            Access Programs & \\
+                                    & \\
+                                & \bf{Update()} \\ & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
                                     Inputs &  None \\
                                     Updates & currentState \\
                                     Outputs & None \\
                                     Description & Changes the state based on keyboard press or mouse presses on graphical buttons.\\
                                      & \\
-                                    \bf{Draw()} & \\
+                                    \end{tabular} \\
+                                & \bf{Draw()} \\ & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
                                     Inputs & board \\
                                     Updates & pieceList \\
                                     Outputs & None \\
                                     Description & Draws the buttons, board tiles and pieces in proper place on the screen. The piece locations are stored in pieceList. And we just loop through the graphics objects to draw them each frame. \\
                                      & \\
-                                    \bf{takeInput()} & \\
+                                     \end{tabular} \\
+                                & \bf{takeInput()} \\ & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
                                     Inputs & input \\
                                     Updates & None \\
                                     Outputs & board \\ 
                                     Description & Takes user input and sends it to the board using board.SetUpBoard().\\
                                     & \\
-                                    \bf{setValidMovements(Board : board)} & \\
+                                    \end{tabular} \\
+                                & \bf{setValidMovements(Board : board)} \\ & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
                                     Inputs & Board \\
                                     Updates & Board \\
                                     Outputs & None \\
                                     Description & Sets the valid movements for every Piece. Default constructor to set them for the entire board. The safe locations to move to are stored within the Pieces. The valid locations are assigned in the order: Top Left -> Top Right -> Bottom Right -> Bottom Left. The default constructor allows for calling the function with no paramaters to set up the entire board. This function loops through each piece element and calls upon setValidMovements for each individual piece to calculate the valid movements of the entire board. \\
                                     & \\
-                                    \bf{setValidMovements(Board : board, X : int, Y : int)} & \\
+                                    \end{tabular} \\                                
+                                & \bf{setValidMovements(Board : board, X : int, Y : int)} \\ & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
                                     Inputs & Board, X , Y \\
                                     Updates & Board \\
                                     Outputs & None \\
                                     Description & Sets the valid movements for an individual Piece. The valid movements are a combination of an x direction and a y direction. initialized to a flag of an unreachable location. Game logic and checkers rule and game logic are contained within this function to judge where a piece can be placed. \\
                                     & \\
-                                    \bf{win(PLAYER : player)} & \\
+                                    \end{tabular} \\
+                                & \bf{win(PLAYER : player)} \\ & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
           		                    Inputs & PLAYER \\
                                     Updates & Board, PLAYER \\
                                     Outputs & None \\
                                     Description & This function will be called when the win condition is true and will clear and reset the board while calling other functions to signal the finish of the game \\
                                     & \\
-                                    \bf{changeTurn()} & \\
+                                    \end{tabular} \\                            
+                                & \bf{changeTurn()} \\ & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
           		                    Inputs & None \\
                                     Updates & CurrentPlayerTurn, Board \\
                                     Outputs & None \\
                                     Description & Abstracts away the need for a manual update of which turn the game is in currently and calling this function will automatically set the board up for the next player's turn \\
-                              		\bf{moveTimerTick(source : Object, e : ElapsedEventArgs)} & \\
+                                    \end{tabular} \\
+                                &\bf{moveTimerTick(source : Object, e : ElapsedEventArgs)} \\ & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
           		                    Inputs & None \\
                                     Updates & CurrentPlayerTurn, Board \\
                                     Outputs & None \\
                                     Description & Initializes the timer component for each turn, and will execute the win condition if the timer has counted down to zero. \\
-                              \end{tabular} \\
+                                \end{tabular} \\
         \end{longtabu}
 
 
