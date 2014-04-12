@@ -276,28 +276,28 @@ The user should not be writing in this file manually.
 \subsubsection*{Test Cases}
 For each test case:
 We load the game and check if it is the right player's turn, if the pieces are in the correct place, and if the pieces's valid movements are correct.
-The following 4 test cases are valid.
+The following are 4 test cases with actual results matching expected results:
 
 \begin{itemize}
-\item Default board\hfill
+\item Default board (Pass)\hfill
 \begin{lstlisting}
 BLACK
 A1=W,A3=W,A7=B,B2=W,B6=B,B8=B,C1=W,C3=W,C7=B,D2=W,D6=B,D8=B,E1=W,E3=W,E7=B,F2=W,F6=B,F8=B,G1=W,G3=W,G7=B,H2=W,H6=B,H8=B
 \end{lstlisting}
 
-\item Custom board\hfill 
+\item Custom board (Pass)\hfill 
 \begin{lstlisting}
 BLACK
 A1=W,A3=W,A7=B,B4=B,B8=B,C1=BK,C5=B,C7=W,D4=BK,D6=W,E3=W,F4=B,F6=B,F8=WK,G1=W,G3=W,G5=W,G7=WK,H6=B
 \end{lstlisting}
 
-\item Empty board\hfill 
+\item Empty board (Fail)\hfill 
 \begin{lstlisting}
 blAcK
 
 \end{lstlisting}
 
-\item Extra information\hfill 
+\item Extra information (Pass)\hfill 
 \begin{lstlisting}
 WHITE
 a1=wk,a3=w,A7=B,B4=B,B8=B,C1=BK,C5=B,C7=W,D4=BK,D6=W,E3=W,F4=B,F6=B,F8=WK,G1=W,G3=W,G5=W,G7=WK,H6=B
@@ -371,6 +371,8 @@ Test choosing 1v1 or vs AI.
 The current turn player should not be able to pick up the opponent's pieces.
 Check that for the first turn, only white is allowed to complete a movement.
 
+If Playing against the AI and the AI has no legal move to make (but the AI still has pieces), the timer will run out and the player will win.
+
 If there is a legal jump, test that you shouldn't be able to move any non-jumper pieces.
 Then for each piece, check that legal moves match the behaviour as defined in the previous section with isMovementLegal().
 
@@ -378,6 +380,10 @@ Returning to the menu will allow the player to switch between playing against an
 While switching, the player may also choose which colour they want to play as.
 
 %\subsection{White-Box Testing}
+
+\subsection{Regression Testing}
+Run all the previous tests from before, all should pass, except for one: BoardLegalMovesTest\_MidgameSetup().
+Previously, forced jumps weren't implemented and were not accounted for. The test has been corrected and now passes again.
 
 
 \end{document}
