@@ -312,8 +312,6 @@ is allowed in case we want to save score and such later on
 \section{Assignment 3}
 
 \subsection{Structural Coverage Testing}
-
-
 Each piece has 8 possible moves, the following function isMovementLegal will test each of the cases for movement assuming no pieces need to jump.
 
 Test set that covers all statements (excluding else branches):
@@ -366,14 +364,20 @@ endfunc
 
 \end{lstlisting}
 
-
 \subsection{System testing \& Acceptance Testing}
+The following testing procedures are Black-Box testing.
 
 Test choosing 1v1 or vs AI.
+The current turn player should not be able to pick up the opponent's pieces.
 Check that for the first turn, only white is allowed to complete a movement.
 
-Test legal moves. If there is a jump, test that you shouldn't be able to move any non-jumper pieces.
+If there is a legal jump, test that you shouldn't be able to move any non-jumper pieces.
+Then for each piece, check that legal moves match the behaviour as defined in the previous section with isMovementLegal().
 
+Returning to the menu will allow the player to switch between playing against another player or AI. 
+While switching, the player may also choose which colour they want to play as.
+
+%\subsection{White-Box Testing}
 
 
 \end{document}
