@@ -391,8 +391,8 @@
                                 Description & Returns true if there is a jump available and false otherwise.\\
                                  & \\   
                             \end{tabular} \\
-        \end{longtabu}
-
+        \end{longtabu}%
+%
     \subsection{Board Module}\CustomLabel{mis:Board}
     \subsubsection{Interface}
         \begin{tabularx}{\linewidth}{@{} >{\bfseries}r Xp{5cm} }
@@ -405,6 +405,9 @@
                                      & \\
                                     None & \\
                               \end{tabular} \\
+        \end{tabularx}
+                              
+      \begin{tabularx}{\linewidth}{@{} >{\bfseries}r Xp{5cm} }
             Access Programs & \begin{tabular}[t]{@{} p{4cm} p{8cm}}
                                      & \\
                                     setUpBoard() & Sets up board based on user input. \\
@@ -438,7 +441,8 @@
                                     getNumPieces(coulour : Piece.PLAYER) & Returns the number of pieces of a specified colour. \\
                              \end{tabular}
         \end{tabularx}
-        
+
+\newpage
     \subsubsection{Implementation}
         \begin{longtabu}{ >{\bfseries}r Xp{2cm} }
             Types           & \begin{tabular}[t]{@{} l p{8cm}} 
